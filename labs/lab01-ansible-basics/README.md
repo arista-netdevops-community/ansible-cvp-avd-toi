@@ -84,8 +84,10 @@ $ ansible-playbook --limit DC_SPINES -i Test_inventory.yml playbook.eos_version.
 # Run playbook to configure a description on Ethernet interface 1 of Leaf1
 $ ansible-playbook playbook.ethernet_descr.yml
 
-# SSH to Leaf1 to verify that the configuration has been applied
+# # SSH to Leaf1 or use an ansible raw command to verify that the configuration has been applied
 $ ssh arista@192.168.0.12
+or
+ansible DC --limit Leaf1 -m raw -a "show running interface Ethernet1" -u arista -k
 
 ```
 
@@ -94,10 +96,10 @@ __6. Create simple playbooks__
 ```shell
 # Create a simple playbook to collect LLDP neighbors
 $ cp playbook.eos_version.yml playbook.lldp_nei.yml
-# Then change the tasks name and the commands to the required information
+# Then change the tasks name, the commands, the variable and the message to the required information
 
 # Create a playbook to configure a new vlan 100 named TEST
-$ cp playbook.ethernet_descr playbook.vlan.yml
+$ cp playbook.ethernet_descr.yml playbook.vlan.yml
 # Then change the tasks name and the commands to the required information
 $ more playbook.vlan.yml
 ---
@@ -113,6 +115,6 @@ $ more playbook.vlan.yml
     - name: Configure vlan 100 on Leaf switches
       eos_config:
          lines:
-            - vlan 100
             - name TEST
+         parents: vlan 100
 ```

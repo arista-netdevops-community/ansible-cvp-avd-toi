@@ -16,7 +16,7 @@ $ python -m pip install virtualenv
 $ source .venv/bin/activate
 ```
 
-## Install Python requirements + Ansible
+## Install Python requirements
 
 ```shell
 $ pip install –-requirement requirements.txt

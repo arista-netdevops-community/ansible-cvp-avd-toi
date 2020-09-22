@@ -50,14 +50,19 @@ $ pip install --requirement  requirements.txt
 # Check what has been installed
 $ pip list
 
+# Install sshpass
+$ sudo apt-get install -y sshpass
+```
+
+### Install the Arista CVP and AVD collections
+
+```shell
 # Create a folder for the Ansible collections
 $ mkdir collections
 $ cd collections
 
-# Install the Arista CVP and AVD collections
-$ ansible-galaxy collection install arista.cvp
-$ ansible-galaxy collection install arista.avd
-$ cd ..
+$ git clone https://github.com/aristanetworks/ansible-cvp.git
+$ git clone https://github.com/aristanetworks/ansible-avd.git
 ```
 
 ### Configure CloudVision IP Address

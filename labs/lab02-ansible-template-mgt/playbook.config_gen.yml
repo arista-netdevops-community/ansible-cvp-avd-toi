@@ -1,0 +1,10 @@
+---
+- name: Build switch configuration
+  hosts: DC
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Generate device intended configuration
+      template:
+        src=./templates/config.j2
+        dest=./configuration/{{ item.hostname }}.txt

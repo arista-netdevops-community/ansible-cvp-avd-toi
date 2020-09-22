@@ -1,0 +1,17 @@
+- name: Collect EOS version
+  hosts: DC
+  connection: network_cli
+  gather_facts: no
+  vars:
+    ansible_network_os: eos
+    ansible_become: yes
+    ansible_become_method: enable
+  tasks:
+    - name: Get switch EOS version
+      eos_command:
+        commands: "show version | grep image"
+      register: version
+
+    - name: Print switch EOS version
+      debug:
+        msg: " {{ inventory_hostname }} is running {{ version.stdout[0] }} "

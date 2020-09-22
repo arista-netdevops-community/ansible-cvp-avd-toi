@@ -1,0 +1,14 @@
+- name: Configure a description on Ethernet interface 1
+  hosts: Leaf1
+  connection: network_cli
+  gather_facts: no
+  vars:
+    ansible_network_os: eos
+    ansible_become: yes
+    ansible_become_method: enable
+  tasks:
+    - name: Configure a description "TEST" on Ethernet 1 interface on Leaf1 switch
+      eos_config:
+         lines:
+            - interface Ethernet1
+            - description TEST

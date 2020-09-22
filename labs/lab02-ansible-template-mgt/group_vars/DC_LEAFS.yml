@@ -1,0 +1,10 @@
+---
+type: l3leaf
+### VLANs ###
+vlans:
+## mlag vlans ##
+  4094:
+    name: MLAG_PEER
+## SERVER_VLANS ##
+  10:
+    name: TENANT_A_SERVER

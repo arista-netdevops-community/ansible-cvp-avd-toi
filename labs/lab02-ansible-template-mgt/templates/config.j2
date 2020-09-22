@@ -1,0 +1,10 @@
+{% if ntp_servers is defined and ntp_servers is not none %}
+!
+{%     for node in ntp_servers.nodes %}
+{%         if loop.first %}
+ntp server {{ node }} prefer
+{%         else %}
+ntp server {{ node }}
+{%         endif %}
+{%     endfor %}
+{% endif %}

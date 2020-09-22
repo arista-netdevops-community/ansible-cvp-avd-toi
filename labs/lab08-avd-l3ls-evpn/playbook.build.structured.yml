@@ -1,0 +1,15 @@
+---
+- name: Build Switch YAML structured configuration and Fabric documentation
+  hosts: DC1_FABRIC
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+
+  tasks:
+    - name: generate structured variables
+      import_role:
+        name: eos_l3ls_evpn
+    - name: generate device structured config and Fabric documentation
+      import_role:
+        name: eos_l3ls_evpn

@@ -1,16 +1,29 @@
-# TOI Lab preparation using Arista Test Drive.
+# TOI Lab preparation using Arista Test Drive
 
 Connect to ATD Jump box using web interface. For more information ask to your local SE.
 
-## Clone repository
+## Clone the Git repo
 
-> For people already running virtual env
+```shell
+git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
+
+Move to repository folder
+$ cd ansible-cvp-avd-toi
+```
+
+## Install Virtual Environment
 
 Run TOI in a python's virtual environment:
 
 ```shell
+# Upgrade pip if needed
+/usr/local/bin/python -m pip install --upgrade pip
+
 # Install virtualenv if not part of your system
 $ python -m pip install virtualenv
+
+# Create a virtual env named .venv
+$ virtualenv -p $(which python3) .venv
 
 # Activate virtualenv
 $ source .venv/bin/activate

@@ -29,12 +29,6 @@ cd ansible-cvp-avd-toi
 # Install virtualenv if not part of your system
 $ python -m pip install virtualenv
 
-# Add the path
-$ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/games:/home/arista/.local/bin
-
-# Verify path
-$ echo $PATH
-
 # Create a virtual env named .venv
 $ virtualenv --no-site-packages -p $(which python3) .venv
 

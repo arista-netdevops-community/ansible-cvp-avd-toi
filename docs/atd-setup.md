@@ -9,20 +9,37 @@ Connect to ATD Jump box using web interface. For more information ask to your lo
 Run TOI in a python's virtual environment:
 
 ```shell
-# Clone repository
-git clone https://github.com/titom73/ansible-cvp-avd-toi.git
+# Install virtualenv if not part of your system
+$ python -m pip install virtualenv
 
-# Move to directory
-cd ansible-cvp-avd-toi
+# Activate virtualenv
+$ source .venv/bin/activate
 ```
 
-### Install Requirements
+## Install Python requirements + Ansible
 
 ```shell
-$ pip install --user -r requirements.txt
+$ pip install –-requirement requirements.txt
+
+# Check what has been installed
+$ pip list
+
+# Install sshpass
+$ sudo apt-get install -y sshpass
 ```
 
-### Configure CloudVision IP Address
+## Install the Arista CVP and AVD collections
+
+```shell
+# Create a folder for the Ansible collections
+$ mkdir collections
+$ cd collections
+
+$ git clone https://github.com/aristanetworks/ansible-cvp.git
+$ git clone https://github.com/aristanetworks/ansible-avd.git
+```
+
+## Configure CloudVision IP Address
 
 > Inventory is pre-configured with internal CVP IP address, so it is not required to update this file.
 

@@ -12,7 +12,7 @@ Run TOI in a python's virtual environment:
 
 ```shell
 # Clone repository
-git clone https://github.com/titom73/ansible-cvp-toi.git
+git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
 
 # Move to directory
 cd ansible-cvp-avd-toi
@@ -45,7 +45,7 @@ $ source .venv/bin/activate
 ### Install Requirements
 
 ```shell
-$ pip install -r requirements.txt
+$ pip install --requirement  requirements.txt
 
 # Check what has been installed
 $ pip list

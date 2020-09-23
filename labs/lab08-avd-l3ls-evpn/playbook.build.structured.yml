@@ -7,9 +7,6 @@
     - arista.avd
 
   tasks:
-    - name: generate structured variables
-      import_role:
-        name: eos_l3ls_evpn
     - name: generate device structured config and Fabric documentation
       import_role:
         name: eos_l3ls_evpn

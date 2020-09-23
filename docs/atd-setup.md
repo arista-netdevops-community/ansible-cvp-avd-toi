@@ -45,6 +45,7 @@ $ sudo apt-get install -y sshpass
 
 ```shell
 # Create a folder for the Ansible collections
+$ cd labs
 $ mkdir collections
 $ cd collections
 

@@ -1,0 +1,4 @@
+hostname: Leaf3
+name_servers:
+ - 192.168.0.200
+ - 4.4.4.4

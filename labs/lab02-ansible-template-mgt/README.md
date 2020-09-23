@@ -28,9 +28,10 @@ __2. Extend the jinja2 template to generate the configuration of the DNS servers
 ```shell
 # Add the DNS feature in the config.j2 template
 $ vi templates/config.j2
+# Add the following lines in the existing templates
 {% if name_servers is defined and name_servers is not none %}
 !
-{%   for node in name_servers.nodes %}
+{%   for node in name_servers %}
 ip name-server {{ node }}
 {%   endfor %}
 {% endif %}
@@ -40,5 +41,11 @@ $ ansible-playbook playbook.config_gen.yml
 
 # Check the newly rendered configuration
 $ ls configuration
-$ more configuration/leaf1.txt
+$ more configuration/Leaf1.txt
+
+# Check configuration/Leaf3.txt
+$ more configuration/Leaf3.txt
+
+# Why are the name servers IP addresses different?
+# Hint: check host_vars/Leaf3.yml
 ```

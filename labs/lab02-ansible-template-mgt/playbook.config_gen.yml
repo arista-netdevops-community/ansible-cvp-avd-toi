@@ -7,4 +7,4 @@
     - name: Generate device intended configuration
       template:
         src=./templates/config.j2
-        dest=./configuration/{{ item.hostname }}.txt
+        dest=./configuration/{{ hostname }}.txt

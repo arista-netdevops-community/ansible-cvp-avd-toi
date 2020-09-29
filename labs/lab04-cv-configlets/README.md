@@ -9,6 +9,10 @@ Create, Update and Delete configlets on CloudVision.
 __1. Review configlet vars__
 
 ```shell
+# Go to lab04 folder
+$ cd labs/lab04-cv-configlets
+
+# Check variables
 $ cat group_vars/CVP.yml
 
 ---
@@ -17,11 +21,17 @@ CVP_CONFIGLETS:
   01TRAINING-01: "alias a{{ 999 | random }} show version"
 ```
 
-__2. Create 2 new configlets on CloudVision server.__
+__2. Create 2 new configlets on CloudVision server__
 
 ```shell
+# Run playbook to create configlets on CVP
 $ ansible-playbook playbook.configlet.yml
+
 ```
+
+Check on CVP that the configlets have been imported:
+https://{{cvp_address}}/cv/provisioning/configlet
+
 
 __3. Optional: Add a new configlet from file__
 
@@ -41,30 +51,20 @@ CVP_CONFIGLETS:
   01TRAINING-alias: "alias a{{ 999 | random }} show version"
   01TRAINING-01: "alias a{{ 999 | random }} show version"
   01TRAINING-02: "{{lookup('file', '../configlet.txt')}}"
+
+
+# Run playbook to create the new configlet on CVP
+$ ansible-playbook playbook.configlet.yml
 ```
 
-Run playbook and check on CloudVision
-
----
-- name: lab02 - cv_facts lab
-  hosts: CloudVision
-  connection: local
-  gather_facts: no
-  tasks:
-    - name: "Gather CVP facts {{inventory_hostname}}"
-      arista.cvp.cv_facts:
-      register: cv_facts
-
-    - name: "Print out configlets facts from {{inventory_hostname}}"
-      debug:
-              msg: "{{cv_facts['ansible_facts']['configlets']}}"
+Check on CloudVision: https://{{cvp_address}}/cv/provisioning/configlet
 
 __4. Remove configlet 01TRAINING-01 from CloudVision__
 
 Edit [CVP.yml](group_vars/CVP.yml) file
 
 ```
-$ vim group_vars/CVP.yml
+$ vi group_vars/CVP.yml
 ```
 
 And update content with

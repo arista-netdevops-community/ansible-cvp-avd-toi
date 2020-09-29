@@ -2,29 +2,26 @@
 
 ## About
 
-Basic commands to test ansible with a basic installation.
+Basic commands to test ansible with a basic installation
 
 ## Execute lab
 
-__1. Install `arista.cvp` collection.__
+__1. Collect facts from CloudVision__
 
 ```shell
-# Install documentation.
-$ ansible-galaxy collection install arista.cvp:==1.0.4 -p ../collections/
+# Move to lab folder
+$ cd lab03-arista.cvp-overview
 
-# Display module documentation.
+# Display module documentation
 $ ansible-doc arista.cvp.cv_device
-```
 
-__2. Collect facts from CloudVision.__
-
-```shell
+# Run playbook to collect CVP facts
 $ ansible-playbook playbook.facts.yml
 ```
 
 __3. Optional: Collect only facts for devices__
 
-Get and display facts of active devices with their configuration.
+Get and display facts of active devices with their configuration
 
 ```yaml
 - name: "Gather CVP facts {{inventory_hostname}}"

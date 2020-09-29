@@ -24,7 +24,6 @@ $ ls ../collections
 
 # View all the ansible command options
 $ ansible --help
-
 ```
 
 __2. Test Ansible installation__
@@ -78,7 +77,6 @@ $ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" 
 
 # Run show version on the Spine switches using Test_inventory.yml and the verbose mode
 $ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -vvv
-
 ```
 
 __5. Use playbooks to collect EOS version and to configure__
@@ -103,7 +101,6 @@ $ ansible-playbook playbook.ethernet_descr.yml
 $ ssh arista@192.168.0.12
 or
 ansible DC --limit Leaf1 -m raw -a "show running interface Ethernet1" -u arista
-
 ```
 
 __6. Create simple playbooks__

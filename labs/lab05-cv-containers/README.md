@@ -1,8 +1,8 @@
-# LAB 05 - Manage Containers on CloudVision.
+# LAB 05 - Manage Containers on CloudVision
 
 ## About
 
-Create and update containers on CloudVision.
+Create and update containers on CloudVision
 
 ## Execute lab
 
@@ -25,9 +25,10 @@ CVP_CONTAINERS:
       - 'spine1'
 ```
 
-__2. Create containers and move device.__
+__2. Create containers and move device__
 
 ```shell
+# Run playbook to create containers and move device
 $ ansible-playbook playbook.configlet.yml
 ```
 
@@ -38,7 +39,7 @@ __3. Optional: Attach 01TRAINING-01 to TRAINING container__
 Edit [CVP.yml](group_vars/CVP.yml) file
 
 ```
-$ vim group_vars/CVP.yml
+$ vi group_vars/CVP.yml
 ```
 
 And update content with
@@ -64,13 +65,21 @@ CVP_CONTAINERS:
       - 'spine1'
 ```
 
-Run playbook and check on CloudVision
+```
+# Run playbook to attach the configlet to the container
+$ ansible-playbook playbook.container.yml
+```
+
+Then check on CloudVision
 
 > On cloudvision server, cancel task and move back device to its initial container
 
 __4. Remove Container topology__
 
-Edit playbook and change mode to `delete`
+```
+# Edit playbook and change mode to `delete`
+$ vi playbook.container.yml
+```
 
 ```yaml
 - name: "Configure containers on {{inventory_hostname}}"
@@ -80,3 +89,10 @@ Edit playbook and change mode to `delete`
     mode: delete
     register: CVP_CONTAINERS_RESULT
 ```
+
+```
+# Run playbook delete containers
+$ ansible-playbook playbook.container.yml
+```
+
+Then check on CloudVision

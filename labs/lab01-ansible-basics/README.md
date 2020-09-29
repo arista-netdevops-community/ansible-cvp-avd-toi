@@ -31,11 +31,9 @@ __2. Test Ansible installation__
 
 ```shell
 $ ansible 127.0.0.1 -m ping
-[WARNING]: No inventory was parsed, only implicit localhost is available
 
 127.0.0.1 | SUCCESS => {
     "changed": false,
-    "failed": false,
     "ping": "pong"
 }
 ```
@@ -50,19 +48,19 @@ __4. Run Ad-hoc commands and analyse the differences__
 
 ```shell
 # Run show version on Spine1
-$ ansible Spine1 -m raw -a "show version | grep image " -u arista -k
+$ ansible Spine1 -m raw -a "show version | grep image " -u arista
 
 # Run show runn on all the switches of the DC
-$ ansible DC -m raw -a "show runn" -u arista -k
+$ ansible DC -m raw -a "show runn" -u arista
 
 # Run show runn on Spine1 only by using the command option --limit
-$ ansible DC --limit Spine1 -m raw -a "show runn" -u arista -k
+$ ansible DC --limit Spine1 -m raw -a "show runn" -u arista
 
 # Run show version on the Spine switches using another inventory, in this case using Test_inventory.yml
-$ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -k
+$ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" -u arista
 
 # Run show version on the Spine switches using Test_inventory.yml and the verbose mode
-$ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -k -vvv
+$ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -vvv
 
 ```
 
@@ -87,7 +85,7 @@ $ ansible-playbook playbook.ethernet_descr.yml
 # # SSH to Leaf1 or use an ansible raw command to verify that the configuration has been applied
 $ ssh arista@192.168.0.12
 or
-ansible DC --limit Leaf1 -m raw -a "show running interface Ethernet1" -u arista -k
+ansible DC --limit Leaf1 -m raw -a "show running interface Ethernet1" -u arista
 
 ```
 

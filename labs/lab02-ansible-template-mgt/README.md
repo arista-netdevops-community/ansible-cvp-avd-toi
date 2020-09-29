@@ -12,15 +12,20 @@ __1. Use Ansible to generate configuration thanks to a jinja2 template__
 # Go to lab02
 $ cd ../lab02-ansible-template-mgt
 
+# Run playbook to create the configuration folder
+$ ansible-playbook playbook.create.folder.yml
+
 # Run playbook to generate the configuration files
 $ ansible-playbook playbook.config_gen.yml
 
-# Check the playbook to see where the configuration files have been rendered
+# Check the playbook to see where the configuration has been rendered
 $ more playbook.config_gen.yml
 
 # Check the rendered configuration
-$ ls configuration
-$ more configuration/leaf1.txt
+
+# Run playbook to create the configuration folder
+$ ansible-playbook playbook.create.folder.yml
+# Note the difference in the colors (green vs yellow) and the number of changes (0 vs 1)
 ```
 
 __2. Extend the jinja2 template to generate the configuration of the DNS servers__

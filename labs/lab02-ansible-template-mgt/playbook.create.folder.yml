@@ -1,0 +1,10 @@
+---
+- name: Create output configuration directory
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Create output configuration directory
+      file:
+        path: "./configuration"
+        state: directory

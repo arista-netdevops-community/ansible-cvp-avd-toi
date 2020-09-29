@@ -41,7 +41,21 @@ $ ansible 127.0.0.1 -m ping
 __3. Display variables for a given host or a given group__
 
 ```shell
+# List all the variables stored in the different ansible files for the DC_SPINES group
 $ ansible DC_SPINES -m debug -a "var=hostvars[inventory_hostname]"
+
+# List all the variables stored in the different ansible files for the Leaf1 host
+$ ansible Leaf1 -m debug -a "var=hostvars[inventory_hostname]"
+
+# From where does Leaf1 inherit the variables below:
+ "ntp_servers": [
+            "192.168.0.2",
+            "192.168.0.3"
+        ],
+# Check in group_vars
+
+# Why does it inherit these variables?
+# Check the inventory file and see the groups leaf1 belongs to. This is also visible at the beginning of the output of the following command: ansible Leaf1 -m debug -a "var=hostvars[inventory_hostname]"
 ```
 
 __4. Run Ad-hoc commands and analyse the differences__
@@ -50,10 +64,13 @@ __4. Run Ad-hoc commands and analyse the differences__
 # Run show version on Spine1
 $ ansible Spine1 -m raw -a "show version | grep image " -u arista
 
-# Run show runn on all the switches of the DC
+# Run show version on Spine1 with JSON output
+$ ansible Spine1 -m raw -a "show version | json " -u arista
+
+# Run show run on all the switches of the DC
 $ ansible DC -m raw -a "show runn" -u arista
 
-# Run show runn on Spine1 only by using the command option --limit
+# Run show run on Spine1 only by using the command option --limit
 $ ansible DC --limit Spine1 -m raw -a "show runn" -u arista
 
 # Run show version on the Spine switches using another inventory, in this case using Test_inventory.yml

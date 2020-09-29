@@ -22,6 +22,12 @@ Run TOI in a python's virtual environment:
 # Install virtualenv if not part of your system
 $ python -m pip install virtualenv
 
+# Add the path
+$ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/games:/home/arista/.local/bin
+
+# Verify path
+$ echo $PATH
+
 # Create a virtual env named .venv
 $ virtualenv -p $(which python3) .venv
 
@@ -32,7 +38,7 @@ $ source .venv/bin/activate
 ## Install Python requirements
 
 ```shell
-$ pip install –-requirement requirements.txt
+$ pip install --requirement requirements.txt
 
 # Check what has been installed
 $ pip list
@@ -49,8 +55,13 @@ $ cd labs
 $ mkdir collections
 $ cd collections
 
+# Install the Arista CVP collection
 $ git clone https://github.com/aristanetworks/ansible-cvp.git
+
+# Install the Arista AVD collection
 $ git clone https://github.com/aristanetworks/ansible-avd.git
+
+$ cd ..
 ```
 
 ## Configure CloudVision IP Address

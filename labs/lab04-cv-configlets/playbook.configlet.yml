@@ -1,5 +1,5 @@
 ---
-- name: lab03 - cv_configlet lab
+- name: lab04 - cv_configlet lab
   hosts: CloudVision
   connection: local
   gather_facts: no

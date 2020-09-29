@@ -1,4 +1,4 @@
-# LAB 06 - Manage tasks generated on CloudVision
+# LAB 07 - Manage tasks generated on CloudVision
 
 ## About
 

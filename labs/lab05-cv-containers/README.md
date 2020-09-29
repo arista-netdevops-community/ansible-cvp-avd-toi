@@ -1,4 +1,4 @@
-# LAB 04 - Manage Containers on CloudVision.
+# LAB 05 - Manage Containers on CloudVision.
 
 ## About
 
@@ -25,7 +25,7 @@ CVP_CONTAINERS:
       - 'spine1'
 ```
 
-__2. Create continers and move device.__
+__2. Create containers and move device.__
 
 ```shell
 $ ansible-playbook playbook.configlet.yml

@@ -12,6 +12,9 @@ __1. Use Ansible to Generate YAML Structured Configuration and Fabric Documentat
 # Go to lab08
 $ $ cd ../lab08-avd-l3ls-evpn
 
+# Run playbook to generate the required folders
+$ ansible-playbook playbook.build.folders.yml
+
 # Run playbook to generate the structured configuration (YAML files) and the fabric documentation
 $ ansible-playbook playbook.build.structured.yml
 
@@ -25,7 +28,7 @@ $ more intended/structured_configs/DC1-LEAF1A.yml
 
 # Check the rendered Fabric documentation
 $ ls documentation/DC1_FABRIC/
-$ more documentation/DC1_FABRIC/ DC1_FABRIC.md
+$ more documentation/DC1_FABRIC/DC1_FABRIC.md
 
 ```
 
@@ -38,7 +41,7 @@ __2. Understand the Fabric Description Structure__
 # Add server03
 #	Part of TENANT_B
 #	In RackB
-#	Connected on port Ethernet 8 of switch DC1-L2LEAF1A
+#	Connected on port Ethernet 8 of switch DC1-LEAF1A
 # Add the following lines in group_vars/DC1_SERVERS.yml
   server03:
     rack: RackB
@@ -46,7 +49,7 @@ __2. Understand the Fabric Description Structure__
       - type: nic
         server_ports: [Eth0]
         switch_ports: [Ethernet8]
-        switches: [DC1-L2LEAF1A]
+        switches: [DC1-LEAF1A]
         profile: TENANT_B
 
 # Run playbook to generate the structured configuration files with the new changes/additions

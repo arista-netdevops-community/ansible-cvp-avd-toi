@@ -1,4 +1,4 @@
-# LAB 02 - CloudVision Collection overview
+# LAB 03 - CloudVision Collection overview
 
 ## About
 

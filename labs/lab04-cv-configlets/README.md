@@ -1,4 +1,4 @@
-# LAB 03 - Manage Configlet on Cloudvision.
+# LAB 04 - Manage Configlet on Cloudvision.
 
 ## About
 
@@ -44,6 +44,20 @@ CVP_CONFIGLETS:
 ```
 
 Run playbook and check on CloudVision
+
+---
+- name: lab02 - cv_facts lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Gather CVP facts {{inventory_hostname}}"
+      arista.cvp.cv_facts:
+      register: cv_facts
+
+    - name: "Print out configlets facts from {{inventory_hostname}}"
+      debug:
+              msg: "{{cv_facts['ansible_facts']['configlets']}}"
 
 __4. Remove configlet 01TRAINING-01 from CloudVision__
 

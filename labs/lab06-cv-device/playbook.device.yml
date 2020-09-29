@@ -1,5 +1,5 @@
 ---
-- name: lab05 - cv_device lab
+- name: lab06 - cv_device lab
   hosts: CloudVision
   connection: local
   gather_facts: no

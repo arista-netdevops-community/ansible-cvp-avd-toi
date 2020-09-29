@@ -34,13 +34,12 @@ $ more documentation/devices/DC1-SPINE1.md
 __2. Understand the per Device YAML Structured Configuration__
 
 ```shell
-# Enable LANZ Streaming to CVP for DC1-SPINE1 and DC1-SPINE2 by modifying the per device structured configuration files
+# Disable LANZ Streaming to CVP for DC1-SPINE1 and DC1-SPINE2 by modifying the per device structured configuration files
 # Hint: check first the configuration CLI commands and then check the data-model
 # on the following link: https://github.com/aristanetworks/ansible-avd/tree/devel/ansible_collections/arista/avd/roles/eos_cli_config_gen
 # Add the following lines in intended/structured_configs/DC1-SPINE1.yml and intended/structured_configs/DC1-SPINE2.yml
 queue_monitor_streaming:
-  enable: true
-  vrf: MGMT
+  enable: false
 
 # Shutdown Ethernet6 interface on DC1-LEAF1A by modifying the per device structured configuration files
 # Add the following lines in intended/structured_configs/DC1-LEAF1A.yml

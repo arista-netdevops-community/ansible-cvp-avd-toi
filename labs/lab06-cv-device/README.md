@@ -1,4 +1,4 @@
-# LAB 05 - Manage device on CloudVision
+# LAB 06 - Manage device on CloudVision
 
 ## About
 

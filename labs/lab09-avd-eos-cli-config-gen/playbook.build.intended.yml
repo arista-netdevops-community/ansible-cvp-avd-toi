@@ -1,4 +1,6 @@
 ---
+- import_playbook: playbook.build.folders.yml
+
 - name: Build Switch intended CLI configuration and documentation
   hosts: DC1_FABRIC
   connection: local

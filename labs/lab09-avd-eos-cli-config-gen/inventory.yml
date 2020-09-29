@@ -1,7 +1,6 @@
 ---
 all:
   children:
-    # DC1_Fabric - EVPN Fabric running in home lab
     DC1:
       children:
         DC1_FABRIC:

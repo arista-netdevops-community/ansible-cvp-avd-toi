@@ -2,7 +2,7 @@
 
 ## About
 
-Basic playbook to test and understand AVD L3LS EVPN Role.
+Basic playbook to test and understand AVD L3LS EVPN Role
 
 ## Execute lab
 

@@ -2,7 +2,7 @@
 
 ## About
 
-Basic commands to test ansible template management.
+Basic commands to test ansible template management
 
 ## Execute lab
 

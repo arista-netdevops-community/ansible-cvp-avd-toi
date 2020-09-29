@@ -2,7 +2,7 @@
 
 ## About
 
-Basic playbook to test and understand AVD EOS CLI CONFIG GEN Role.
+Basic playbook to test and understand AVD EOS CLI CONFIG GEN Role
 
 ## Execute lab
 
@@ -52,5 +52,4 @@ ethernet_interfaces:
 $ ansible-playbook playbook.build.intended.yml
 
 # Check the newly rendered EOS configuration files and documentation
-
 ```

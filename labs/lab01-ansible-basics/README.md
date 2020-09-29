@@ -2,7 +2,7 @@
 
 ## About
 
-Basic commands to test ansible with a basic installation.
+Basic commands to test ansible with a basic installation
 
 ## Execute lab
 

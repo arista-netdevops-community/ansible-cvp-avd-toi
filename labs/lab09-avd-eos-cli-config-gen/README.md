@@ -37,6 +37,10 @@ __2. Understand the per Device YAML Structured Configuration__
 # Disable LANZ Streaming to CVP for DC1-SPINE1 and DC1-SPINE2 by modifying the per device structured configuration files
 # Hint: check first the configuration CLI commands and then check the data-model
 # on the following link: https://github.com/aristanetworks/ansible-avd/tree/devel/ansible_collections/arista/avd/roles/eos_cli_config_gen
+
+# before adding the key below, make sure that it does not already exist in the structured config file
+$ cat intended/structured_configs/DC1-SPINE1.yml | grep streaming | wc -l
+
 # Add the following lines in intended/structured_configs/DC1-SPINE1.yml and intended/structured_configs/DC1-SPINE2.yml
 queue_monitor_streaming:
   enable: false

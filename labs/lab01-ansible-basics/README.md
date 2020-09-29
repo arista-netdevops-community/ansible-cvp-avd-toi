@@ -61,22 +61,22 @@ __4. Run Ad-hoc commands and analyse the differences__
 
 ```shell
 # Run show version on Spine1
-$ ansible Spine1 -m raw -a "show version | grep image " -u arista
+$ ansible Spine1 -m raw -a "show version | grep image " -u arista -k
 
 # Run show version on Spine1 with JSON output
-$ ansible Spine1 -m raw -a "show version | json " -u arista
+$ ansible Spine1 -m raw -a "show version | json " -u arista -k
 
 # Run show run on all the switches of the DC
-$ ansible DC -m raw -a "show runn" -u arista
+$ ansible DC -m raw -a "show runn" -u arista -k
 
 # Run show run on Spine1 only by using the command option --limit
-$ ansible DC --limit Spine1 -m raw -a "show runn" -u arista
+$ ansible DC --limit Spine1 -m raw -a "show runn" -u arista -k
 
 # Run show version on the Spine switches using another inventory, in this case using Test_inventory.yml
-$ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" -u arista
+$ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -k
 
 # Run show version on the Spine switches using Test_inventory.yml and the verbose mode
-$ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -vvv
+$ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -vvv -k
 ```
 
 __5. Use playbooks to collect EOS version and to configure__

@@ -2,7 +2,7 @@
 
 ## About
 
-Manage configlets attached to a device.
+Manage configlets attached to a device
 
 ## Execute lab
 
@@ -49,4 +49,4 @@ CVP_DEVICES:
     imageBundle: []  # Not yet supported
 ```
 
-Update playbook accordingly.
+Update playbook accordingly

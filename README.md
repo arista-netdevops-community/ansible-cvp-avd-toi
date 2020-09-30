@@ -51,7 +51,6 @@ $ vim inventory.yml
 ## Configure Lab Environment
 
 - [Arista Test Drive (ATD)](docs/atd-setup.md) for lab environment
-- [Docker Environment](docs/docker-setup.md) (preferred method)
 - [Virtual Environment](docs/venv-setup.md)
 
 ## Resources

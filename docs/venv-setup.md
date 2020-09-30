@@ -56,7 +56,10 @@ $ cd labs
 $ mkdir collections
 $ cd collections
 
+# Install the Arista CVP collection
 $ git clone https://github.com/aristanetworks/ansible-cvp.git
+
+# Install the Arista AVD collection
 $ git clone https://github.com/aristanetworks/ansible-avd.git
 ```
 
@@ -68,5 +71,5 @@ Go to [`labs`](../labs/) folder and do the following command:
 $ cd labs
 
 # Edit inventory file
-$ vim inventory.yml
+$ vi inventory.yml
 ```

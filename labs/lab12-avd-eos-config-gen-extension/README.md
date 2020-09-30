@@ -1,4 +1,4 @@
-# LAB 09 - AVD EOS CLI CONFIG GEN
+# LAB 12 - AVD EOS CLI CONFIG GEN EXTENSION
 
 ## About
 
@@ -11,6 +11,9 @@ __1. Extend EOS CLI Config Generation Role with a New Option in Existing Feature
 ```shell
 # Go to lab12
 $ cd ../lab12-avd-eos-config-gen-extension
+
+# Run playbook to generate the required folders
+$ ansible-playbook playbook.create.folders.yml
 
 # Run playbook to generate the structured configuration YAML files and Fabric documentation
 $ ansible-playbook playbook.build.structured.yml

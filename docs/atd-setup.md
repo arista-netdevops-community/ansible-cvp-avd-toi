@@ -18,7 +18,7 @@ Run TOI in a python's virtual environment:
 
 ```shell
 # Upgrade pip if needed
-/usr/local/bin/python -m pip install --upgrade pip
+$ /usr/local/bin/python -m pip install --upgrade pip
 
 # Install virtualenv if not part of your system
 $ python -m pip install virtualenv

@@ -9,7 +9,7 @@ Basic playbook to test and understand AVD EOS CLI CONFIG GEN Role
 __1. Use Ansible to Generate CLI Configuration Files and per Device Documentation__
 
 ```shell
-# Go to lab09
+# Go to lab09 directory
 $ cd ../lab09-avd-eos-cli-config-gen
 
 # Run playbook to generate the required folders
@@ -37,16 +37,17 @@ $ more documentation/devices/DC1-SPINE1.md
 __2. Understand the per Device YAML Structured Configuration__
 
 ```shell
-# Disable LANZ Streaming to CVP for DC1-SPINE1 and DC1-SPINE2 by modifying the per device structured configuration files
+# Enable LANZ Streaming to CVP for DC1-SPINE1 and DC1-SPINE2 by modifying the per device structured configuration files
 # Hint: check first the configuration CLI commands and then check the data-model
 # on the following link: https://github.com/aristanetworks/ansible-avd/tree/devel/ansible_collections/arista/avd/roles/eos_cli_config_gen
 
 # before adding the key below, make sure that it does not already exist in the structured config file
 $ cat intended/structured_configs/DC1-SPINE1.yml | grep streaming | wc -l
+# The result should be 1, which means the key exists
 
 # Add the following lines in intended/structured_configs/DC1-SPINE1.yml and intended/structured_configs/DC1-SPINE2.yml
 queue_monitor_streaming:
-  enable: false
+  enable: true
 
 # Shutdown Ethernet6 interface on DC1-LEAF1A by modifying the per device structured configuration files
 # Add the following lines in intended/structured_configs/DC1-LEAF1A.yml

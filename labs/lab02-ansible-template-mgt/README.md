@@ -9,7 +9,7 @@ Basic commands to test ansible template management
 __1. Use Ansible to generate configuration thanks to a jinja2 template__
 
 ```shell
-# Go to lab02
+# Go to the lab02 directory
 $ cd ../lab02-ansible-template-mgt
 
 # Run playbook to create the configuration folder

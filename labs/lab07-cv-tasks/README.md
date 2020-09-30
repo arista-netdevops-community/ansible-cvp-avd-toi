@@ -8,6 +8,11 @@ Execute pending tasks on CloudVision
 
 __1. Review configlet vars__
 
+```shell
+# Go to lab07 directory
+$ cd ../lab07-cv-tasks
+```
+
 ```yaml
 # Check variables
 $ cat group_vars/CVP.yml

@@ -1,0 +1,16 @@
+---
+- name: Create Output Folders
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Include Folder Information
+      include_vars:
+        file: folders.yml
+
+    - name: Create Output Folders
+      file:
+        path: "{{item}}"
+        state: directory
+      loop: "{{folder}}"

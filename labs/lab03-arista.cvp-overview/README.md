@@ -9,8 +9,8 @@ Basic commands to test ansible with a basic installation
 __1. Collect facts from CloudVision__
 
 ```shell
-# Move to lab folder
-$ cd lab03-arista.cvp-overview
+# Move to lab directory
+$ cd ../lab03-arista.cvp-overview
 
 # Display module documentation
 $ ansible-doc arista.cvp.cv_device

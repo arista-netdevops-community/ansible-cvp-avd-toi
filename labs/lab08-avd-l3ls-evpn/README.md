@@ -9,7 +9,7 @@ Basic playbook to test and understand AVD L3LS EVPN Role
 __1. Use Ansible to Generate YAML Structured Configuration and Fabric Documentation__
 
 ```shell
-# Go to lab08
+# Go to the lab08 directory
 $ $ cd ../lab08-avd-l3ls-evpn
 
 # Run playbook to generate the required folders

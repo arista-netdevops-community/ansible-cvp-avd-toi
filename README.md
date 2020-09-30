@@ -36,7 +36,7 @@ This repository is part of [`arista.cvp`](https://github.com/aristanetworks/ansi
 
 ```shell
 # Clone repository
-git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
+$ git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
 
 # Move to directory
 $ cd ansible-cvp-avd-toi

@@ -1,8 +1,8 @@
-# LAB 09 - AVD EOS CLI CONFIG GEN
+# LAB 11 - AVD EOS STATE VALIDATION
 
 ## About
 
-Basic playbook to test and understand AVD EOS STATE VAlIDATIOn Role
+Basic playbook to test and understand AVD EOS STATE VAlIDATION Role
 
 ## Execute lab
 
@@ -11,6 +11,9 @@ __1. Use Ansible to Deploy Configuration via CVP__
 ```shell
 # Go to lab11
 $ cd ../lab11-avd-eos-state-validate
+
+# Run playbook to generate the required folders
+$ ansible-playbook playbook.create.folders.yml
 
 # Run playbook to generate the structured configuration YAML files and the EOS configuration
 $ ansible-playbook playbook.build.structured.yml
@@ -23,7 +26,7 @@ $ ansible-playbook playbook.deploy.CVP.yml
 $ ansible-playbook playbook.validate.state.yml
 
 # Check the playbook and identify the AVD role
-$ more playbook. playbook.validate.state.yml
+$ more playbook.playbook.validate.state.yml
 
 # Check the rendered CVS and Markdown files
 ```

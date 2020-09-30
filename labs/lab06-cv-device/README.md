@@ -8,6 +8,11 @@ Manage configlets attached to a device
 
 __1. Review configlet vars__
 
+```shell
+# Go to lab06 directory
+$ cd ../lab06-cv-device
+```
+
 ```yaml
 $ cat group_vars/CVP.yml
 

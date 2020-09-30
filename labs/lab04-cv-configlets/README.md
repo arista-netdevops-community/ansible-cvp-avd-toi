@@ -9,8 +9,8 @@ Create, Update and Delete configlets on CloudVision.
 __1. Review configlet vars__
 
 ```shell
-# Go to lab04 folder
-$ cd labs/lab04-cv-configlets
+# Go to lab04 directory
+$ cd ../lab04-cv-configlets
 
 # Check variables
 $ cat group_vars/CVP.yml
@@ -40,7 +40,7 @@ Create configlet with content of file [configlet.txt](configlet.txt)
 Edit [CVP.yml](group_vars/CVP.yml) file
 
 ```
-$ vim group_vars/CVP.yml
+$ vi group_vars/CVP.yml
 ```
 
 And update content with

@@ -5,6 +5,7 @@ Connect to ATD Jump box using web interface. For more information ask to your lo
 ## Clone the Git repo
 
 ```shell
+# Clone the Git repo on the ATD jumphost
 git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
 
 Move to repository folder
@@ -74,5 +75,5 @@ Go to [`labs`](../labs/) folder and do the following command:
 $ cd labs
 
 # Edit inventory file
-$ vim inventory.yml
+$ vi inventory.yml
 ```

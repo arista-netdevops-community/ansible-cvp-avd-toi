@@ -55,6 +55,9 @@ $ ansible Leaf1 -m debug -a "var=hostvars[inventory_hostname]"
 
 # Why does it inherit these variables?
 # Check the inventory file and see the groups leaf1 belongs to. This is also visible at the beginning of the output of the following command: ansible Leaf1 -m debug -a "var=hostvars[inventory_hostname]"
+
+# Another command to list variables
+$ ansible-inventory --host Leaf1
 ```
 
 __4. Run Ad-hoc commands and analyse the differences__

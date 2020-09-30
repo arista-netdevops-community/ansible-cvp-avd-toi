@@ -22,16 +22,18 @@ CVP_DEVICES:
     imageBundle: []  # Not yet supported
 ```
 
-__2. Attach configlet `Leaf1-BGP-LAB` to leaf1 device.__
+__2. Attach configlet `Leaf1-BGP-LAB` to leaf1 device__
 
 ```shell
+# Run playbook to attach the configlet named Leaf1-BGP-LAB to Leaf1
 $ ansible-playbook playbook.device.yml
 ```
 
 __3. Optional: Create new configlets and attach them to leaf1__
 
 ```shell
-$ cat group_vars/CVP.yml
+# Create new configlet to attach to Leaf1
+$ vi group_vars/CVP.yml
 
 ---
 CVP_CONFIGLETS:
@@ -47,6 +49,7 @@ CVP_DEVICES:
         - 'BaseIPv4_Leaf1'
         - '01TRAINING-01'
     imageBundle: []  # Not yet supported
-```
 
-Update playbook accordingly
+# Run playbook again to attach the newly created configlet to Leaf1
+$ ansible-playbook playbook.device.yml
+```

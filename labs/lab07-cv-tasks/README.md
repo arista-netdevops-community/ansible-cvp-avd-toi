@@ -2,13 +2,14 @@
 
 ## About
 
-Execute pending tasks on CloudVision.
+Execute pending tasks on CloudVision
 
 ## Execute lab
 
 __1. Review configlet vars__
 
 ```yaml
+# Check variables
 $ cat group_vars/CVP.yml
 
 ---
@@ -26,8 +27,9 @@ CVP_DEVICES:
     imageBundle: []  # Not yet supported
 ```
 
-__2. Attach configlet `Leaf1-BGP-LAB` to leaf1 device.__
+__2. Attach configlet `Leaf1-BGP-LAB` to leaf1 device__
 
 ```shell
+# Run playbook to run task
 $ ansible-playbook playbook.tasks.yml
 ```

@@ -91,7 +91,7 @@ $ vi playbook.container.yml
 ```
 
 ```
-# Run playbook delete containers
+# Run playbook to delete containers
 $ ansible-playbook playbook.container.yml
 ```
 

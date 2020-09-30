@@ -39,13 +39,13 @@ This repository is part of [`arista.cvp`](https://github.com/aristanetworks/ansi
 git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
 
 # Move to directory
-cd ansible-cvp-avd-toi
+$ cd ansible-cvp-avd-toi
 
 # Move to lab folder
 $ cd labs
 
 # Edit inventory file
-$ vim inventory.yml
+$ vi inventory.yml
 ```
 
 ## Configure Lab Environment

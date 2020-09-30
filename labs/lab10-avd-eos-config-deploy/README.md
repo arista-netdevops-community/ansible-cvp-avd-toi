@@ -12,15 +12,28 @@ __1. Use Ansible to Deploy Configuration via CVP__
 # Go to lab10
 $ cd ../lab10-avd-eos-config-deploy
 
+# Run playbook to generate the required folders
+$ ansible-playbook playbook.create.folders.yml
+
+# Run playbook to generate the structured configuration YAML files and Fabric documentation
+$ ansible-playbook playbook.build.structured.yml
+
+# Run playbook to generate the intended EOS configuration files and per device documentation
+$ ansible-playbook playbook.build.intended.yml
+
 # Connect to CVP and check the current topology and device configuration
 
 # Run playbook to deploy the configuration via CVP and build the container topology
 $ ansible-playbook playbook.deploy.CVP.yml
 
 # Connect to CVP and the new topology and device configuration
+
+# Check the configuration of DC1_SPINE1 for example
+$ ssh arista@192.168.0.10
+
 ```
 
-__2. Use Ansible to Deploy Configuration via eAPI__
+__2. Use Ansible to Deploy Configuration via eAPI__ ( ! WIP - NOT READY YET ! )
 
 ```shell
 # Change the configuration of DC1_SPINE1

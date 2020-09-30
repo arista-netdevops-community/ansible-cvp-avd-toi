@@ -12,6 +12,9 @@ __1. Use Ansible to Generate CLI Configuration Files and per Device Documentatio
 # Go to lab09
 $ cd ../lab09-avd-eos-cli-config-gen
 
+# Run playbook to generate the required folders
+$ ansible-playbook playbook.create.folders.yml
+
 # Run playbook to generate the structured configuration YAML files and Fabric documentation
 $ ansible-playbook playbook.build.structured.yml
 

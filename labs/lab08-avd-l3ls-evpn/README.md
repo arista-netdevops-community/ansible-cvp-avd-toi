@@ -13,7 +13,7 @@ __1. Use Ansible to Generate YAML Structured Configuration and Fabric Documentat
 $ $ cd ../lab08-avd-l3ls-evpn
 
 # Run playbook to generate the required folders
-$ ansible-playbook playbook.build.folders.yml
+$ ansible-playbook playbook.create.folders.yml
 
 # Run playbook to generate the structured configuration (YAML files) and the fabric documentation
 $ ansible-playbook playbook.build.structured.yml

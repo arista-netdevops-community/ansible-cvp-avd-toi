@@ -12,10 +12,10 @@ Run TOI in a python's virtual environment:
 
 ```shell
 # Clone repository
-git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
+$ git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
 
 # Move to directory
-cd ansible-cvp-avd-toi
+$ cd ansible-cvp-avd-toi
 ```
 
 ### Install Python Virtual Environment

@@ -28,7 +28,9 @@ CVP_DEVICES:
     parentContainerName: Leaf
     configlets:
         - 'Leaf1-BGP-Lab'
+        - 'BaseIPv4_Leaf1'
         - '01TRAINING-01'
+        - '01TRAINING-alias'
     imageBundle: []  # Not yet supported
 ```
 

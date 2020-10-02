@@ -24,11 +24,21 @@ __3. Optional: Collect only facts for devices__
 Get and display facts of active devices with their configuration
 
 ```yaml
-- name: "Gather CVP facts {{inventory_hostname}}"
-    arista.cvp.cv_facts:
-    facts:
-        devices
-    gather_subset:
-        config
-    register: cv_facts
+---
+- name: lab03 - cv_facts lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Gather CVP facts {{inventory_hostname}}"
+      arista.cvp.cv_facts:
+        facts:
+          devices
+        gather_subset:
+          config
+      register: cv_facts
+
+    - name: "Print out facts from {{inventory_hostname}}"
+      debug:
+        msg: "{{cv_facts}}"
 ```

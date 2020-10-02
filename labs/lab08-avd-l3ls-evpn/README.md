@@ -36,13 +36,26 @@ __2. Understand the Fabric Description Structure__
 
 ```shell
 # Modify the IP range used for the VTEP VXLAN Tunnel source loopbacks
-# Change vtep_loopback_network_summary value in group_vars/DC1_FABRIC.yml
+# Change "vtep_loopback_network_summary" value in group_vars/DC1_FABRIC.yml
+$ vi group_vars/DC1_FABRIC.yml
+# Run playbook to generate the structured configuration files with IP changes
+$ ansible-playbook playbook.build.structured.yml
 
-# Add server03
+# Verify the change in structured files under loopback_interfaces
+$ more intended/structured_configs/DC1-LEAF1A.yml
+
+# Add a server to the Fabric:
+
+# Server03
 #	Part of TENANT_B
 #	In RackB
 #	Connected on port Ethernet 8 of switch DC1-LEAF1A
-# Add the following lines in group_vars/DC1_SERVERS.yml
+
+$ vi group_vars/DC1_SERVERS.yml
+# Add the following lines:
+```
+
+```yaml
   server03:
     rack: RackB
     adapters:
@@ -51,8 +64,10 @@ __2. Understand the Fabric Description Structure__
         switch_ports: [Ethernet8]
         switches: [DC1-LEAF1A]
         profile: TENANT_B
+```
 
-# Run playbook to generate the structured configuration files with the new changes/additions
+```shell
+# Run playbook to generate the structured configuration files with the new addition
 $ ansible-playbook playbook.build.structured.yml
 
 # Check the newly rendered structured configuration files and documentation

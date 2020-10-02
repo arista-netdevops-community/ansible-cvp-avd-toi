@@ -14,6 +14,7 @@ $ cd ../lab06-cv-device
 ```
 
 ```yaml
+# Check variables before running playbook
 $ cat group_vars/CVP.yml
 
 ---
@@ -30,9 +31,11 @@ CVP_DEVICES:
 __2. Attach configlet `Leaf1-BGP-LAB` to leaf1 device__
 
 ```shell
-# Run playbook to attach the configlet named Leaf1-BGP-LAB to Leaf1
+# Run playbook to attach the configlet to Leaf1
 $ ansible-playbook playbook.device.yml
 ```
+
+Check on CloudVision: https://{{cvp_address}}/cv/provisioning
 
 __3. Optional: Create new configlets and attach them to leaf1__
 
@@ -55,6 +58,12 @@ CVP_DEVICES:
         - '01TRAINING-01'
     imageBundle: []  # Not yet supported
 
+# Modify the playbook to push the newly created configlet before applying it to the device
+# Be careful with the YAML indentation
+$ vi ansible-playbook playbook.device.yml
+
 # Run playbook again to attach the newly created configlet to Leaf1
 $ ansible-playbook playbook.device.yml
 ```
+
+Check on CloudVision: https://{{cvp_address}}/cv/provisioning

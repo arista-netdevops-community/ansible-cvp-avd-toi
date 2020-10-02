@@ -1,0 +1,20 @@
+---
+- import_playbook: playbook.create.folders.yml
+
+- import_playbook: playbook.update.configlet.yml
+
+- name: Build Switch intended CLI configuration and documentation
+  hosts: DC1_FABRIC
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+
+  tasks:
+    - name: Generate device structured config and Fabric documentation
+      import_role:
+        name: eos_l3ls_evpn
+
+    - name: Generate device intended CLI configuration and documentation
+      import_role:
+        name: eos_cli_config_gen

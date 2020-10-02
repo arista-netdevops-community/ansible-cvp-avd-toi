@@ -13,6 +13,6 @@
       vars:
         container_root: 'DC1_FABRIC'
         configlets_prefix: 'DC1'
-        device_filter: 'DC1'
+        device_filter: ''
         state: present
         execute_tasks: false

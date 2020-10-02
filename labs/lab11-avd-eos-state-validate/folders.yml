@@ -6,3 +6,5 @@ folder:
   - intended/structured_configs
   - intended/configs
   - intended/structured_configs/cvp
+  - config_backup
+  - validation

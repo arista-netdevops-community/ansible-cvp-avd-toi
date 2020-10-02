@@ -5,32 +5,31 @@ local_users:
   admin:
     privilege: 15
     role: network-admin
-    sha512_password: "$6$Df86J4/SFMDE3/1K$Hef4KstdoxNDaami37cBquTWOTplC.miMPjXVgQxMe92.e5wxlnXOLlebgPj8Fz1KO0za/RCO7ZIs4Q6Eiq1g1"
-
+    sha512_password: "$6$FPNFEg4i/Fs3hMux$toS5p7WdOy8yigwY6kWivldy5td3NnEvLOREiL4WPl0kRGiMl2/6NaXChi6OboF.z19DSXAdzA6YuZF/uoMma."
+  arista:
+    privilege: 15
+    role: network-admin
+    sha512_password: "$6$BuskPpqDFXqIIQvR$FrDJaqt3gP/SdfnF8MftUAVCpyUwmxcyTYRM605NzVhFtsdE6ljtr7Fpp5YVJlVuwLVbwALTQ.DMq/HseaIou0"
   cvpadmin:
     privilege: 15
     role: network-admin
     sha512_password: "$6$rZKcbIZ7iWGAWTUM$TCgDn1KcavS0s.OV8lacMTUkxTByfzcGlFlYUWroxYuU7M/9bIodhRO7nXGzMweUxvbk8mJmQl8Bh44cRktUj."
 
-  ansible:
-    privilege: 15
-    role: network-admin
-    sha512_password: "$6$Dzu11L7yp9j3nCM9$FSptxMPyIL555OMO.ldnjDXgwZmrfMYwHSr0uznE5Qoqvd9a6UdjiFcJUhGLtvXVZR1r.A/iF5aAt50hf/EK4/"
-
 # Cloud Vision server information
-cvp_instance_ip: 10.255.0.1
-cvp_ingestauth_key: ''
-# cvp_ingestauth_key: telarista
+cvp_instance_ip: 192.168.0.5
+cvp_ingestauth_key: atd-lab
 
-# OOB Management network default gateway.
-mgmt_gateway: 10.255.0.1
+# OOB Management network default gateway
+mgmt_gateway: 192.168.0.1
 
-# dns servers.
+### DNS Domain ###
+dns_domain: atd.lab
+
+# DNS servers
 name_servers:
   - 192.168.2.1
   - 8.8.8.8
 
-# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment VRF
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Management VRF
 ntp_servers:
- - 192.168.0.2
- - 192.168.0.3
+  - 192.168.0.1

@@ -17,20 +17,19 @@ local_users:
 
 # Cloud Vision server information
 cvp_instance_ip: 192.168.0.5
-cvp_ingestauth_key: key
-# cvp_ingestauth_key: telarista
+cvp_ingestauth_key: atd-lab
 
 # OOB Management network default gateway
 mgmt_gateway: 192.168.0.1
 
 ### DNS Domain ###
-dns_domain: domain atd.lab
+dns_domain: atd.lab
 
 # DNS servers
 name_servers:
   - 192.168.2.1
   - 8.8.8.8
 
-# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Managment VRF
+# NTP Servers IP or DNS name, first NTP server will be prefered, and sourced from Management VRF
 ntp_servers:
   - 192.168.0.1

@@ -5,7 +5,7 @@
   gather_facts: false
 
   tasks:
-    - name: include folder info
+    - name: Include folder info
       include_vars:
         file: folders.yml
 

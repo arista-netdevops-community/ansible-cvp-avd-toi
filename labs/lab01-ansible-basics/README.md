@@ -100,10 +100,8 @@ $ ansible-playbook --limit DC_SPINES -i Test_inventory.yml playbook.eos_version.
 # Run playbook to configure a description on Ethernet interface 1 of Leaf1
 $ ansible-playbook playbook.ethernet_descr.yml
 
-# # SSH to Leaf1 or use an ansible raw command to verify that the configuration has been applied
-$ ssh arista@192.168.0.12
-or
-ansible DC --limit Leaf1 -m raw -a "show running interface Ethernet1" -u arista
+# Use an ansible raw command to verify that the configuration has been applied
+$ ansible Leaf1 -m raw -a "show running interface Ethernet1" -u arista
 ```
 
 __6. Create simple playbooks__

@@ -17,7 +17,7 @@ servers:
       - type: nic
         server_ports: [Eth0]
         switch_ports: [Ethernet4]
-        switches: [DC1-LEAF1A]
+        switches: [leaf1]
         profile: TENANT_A
   server02:
     rack: RackA
@@ -25,5 +25,5 @@ servers:
       - type: nic
         server_ports: [Eth0]
         switch_ports: [Ethernet4]
-        switches: [DC1-LEAF2A]
+        switches: [leaf3]
         profile: TENANT_A

@@ -12,21 +12,21 @@ __1. Use Ansible to Deploy Configuration via CVP__
 # Go to lab10
 $ cd ../lab10-avd-eos-config-deploy
 
-# Run playbook to generate the required folders
-$ ansible-playbook playbook.create.folders.yml
+# Run playbook to generate the required folders, the structured YAML configuration files, the Fabric documentation, the intended EOS configuration files and the per device documentation
+$ ansible-playbook playbook.build.folders.structured.intended.yml
 
-# Run playbook to generate the structured configuration YAML files and Fabric documentation
-$ ansible-playbook playbook.build.structured.yml
-
-# Run playbook to generate the intended EOS configuration files and per device documentation
-$ ansible-playbook playbook.build.intended.yml
+# Verify that the structured and intended configuration files have been rendered as expected
+$ ls intended/structured_configs/
+$ ls intended/configs/
 
 # Connect to CVP and check the current topology and device configuration
+# https://{{cvp_address}}/cv/provisioning
 
-# Run playbook to deploy the configuration via CVP and build the container topology
+# Run playbook to deploy the configuration via CVP and to build the container topology
 $ ansible-playbook playbook.deploy.CVP.yml
 
 # Connect to CVP and the new topology and device configuration
+# https://{{cvp_address}}/cv/provisioning
 
 # Check the configuration of DC1_SPINE1 for example
 $ ssh arista@192.168.0.10

@@ -1,6 +1,6 @@
 ---
-- name: Run commands on remote EOS devices and save the output
-  hosts: DC_FABRIC
+- name: Configure description on Ethernet1
+  hosts: Leaf1
   connection: network_cli
   gather_facts: false
   vars:
@@ -9,16 +9,17 @@
     ansible_become_method: enable
 
   tasks:
-    - name: run show command on remote EOS devices
+    - name: Configure description on Ethernet1
+      eos_config:
+        lines:
+        - description TEST-Lab01
+        parents: interface ethernet1
+
+    - name: Get switch Ethernet1 interface configuration
       eos_command:
-        commands: show lldp neighbors | json
-      register: cli_output
+        commands: "show run interface Ethernet1"
+      register: ethernet1
 
-    - name: Print LLDP neighbors
+    - name: Print Ethernet1 new configuration
       debug:
-        msg: " {{ cli_output.stdout[0] }} "
-
-    - name: copy commands output in the save directory
-      copy:
-        content: "{{ cli_output.stdout[0].lldpNeighbors}}"
-        dest: lldp-{{ inventory_hostname }}.json
+        msg: " {{ ethernet1.stdout_lines }} "

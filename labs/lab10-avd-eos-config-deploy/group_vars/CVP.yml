@@ -1,0 +1,3 @@
+---
+CVP_CONFIGLETS:
+  ATD-INFRA: "{{lookup('file', './ATD-INFRA.txt')}}"

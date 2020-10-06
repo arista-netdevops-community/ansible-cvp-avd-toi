@@ -114,17 +114,16 @@ vi ../collections/ansible-avd/ansible_collections/arista/adv/roles/eos_cli_confi
 ### Management Telnet
 
 {%     if management_telnet.shutdown is defined and management_telnet.shutdown == false %}
-   Management Telnet is enabled.
+   Management Telnet is enabled
 
 {%     endif %}
 
 ### Management Telnet Configuration
 
-```eos
 {% include 'eos/management-telnet.j2' %}
-```
+
 {% else %}
-Management Telnet is not defined
+Management Telnet is not defined.
 {% endif %}
 ```
 

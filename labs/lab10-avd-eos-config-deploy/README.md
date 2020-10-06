@@ -21,13 +21,13 @@ $ ls intended/configs/
 
 # Connect to CVP and check the current topology and device configuration
 # https://{{cvp_address}}/cv/provisioning
-# Approve the 9 pending tasks and execute them
 
 # Run playbook to deploy the configuration via CVP and to build the container topology
 $ ansible-playbook playbook.deploy.CVP.yml
 
-# Connect to CVP and the new topology and device configuration
+# Connect to CVP and check the new topology and device configuration
 # https://{{cvp_address}}/cv/provisioning
+# Approve the 9 pending tasks and execute them
 
 # Check the configuration of spine1 for example
 $ ssh arista@192.168.0.10
@@ -48,8 +48,8 @@ $ ansible-playbook playbook.deploy.eAPI.yml
 
 # Check the pre- and post-configuration backup files
 $ ls config_backup
-$ more config_backup/DC1_spine1_pre_running-config.conf
-$ more config_backup/DC1_spine1_post_running-config.conf
+$ more config_backup/spine1_pre_running-config.conf
+$ more config_backup/spine1_post_running-config.conf
 
 # Check the configuration of spine1
 $ ssh arista@192.168.0.10

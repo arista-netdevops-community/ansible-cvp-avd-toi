@@ -68,6 +68,10 @@ $ more intended/configs/spine1.cfg
 
 # Verify the rendered device documentation
 $ more documentation/devices/spine1.md
+
+# Change the NTP authentication value in spine1.yml and test the cli and doc rendering
+# Always test the different possible scenarios to make sure the rendering works well in all use cases
+# Test deploying the configuration on a switch to make sure the rendered EOS syntax is correct
 ```
 
 __3. Extend EOS CLI Config Generation Role with a New Feature__

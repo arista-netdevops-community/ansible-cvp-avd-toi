@@ -28,12 +28,12 @@ $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_con
 ntp_server:
   authentication_keys:
     < id_1 >:
-      hash: < md5 | sha1 >
+      hash_algorithm: < md5 | sha1 >
       encrypted_key: < encrypted_key >
     < id_2 >:
-      hash: < md5 | sha1 >
+      hash_algorithm: < md5 | sha1 >
       encrypted_key: < encypted_key >
-  trusted_keys: < list of key numbers >
+  trusted_keys: "< list of key numbers >"
   authenticate: < true | false >
   local_interface:
     vrf: < vrf_name >
@@ -46,25 +46,93 @@ ntp_server:
 ```shell
 # Add authentication for the NTP server in the EOS jinja template
 $  vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/eos/ntp-servers.j2
+```
 
-# Add authentication for the NTP server in the jinja template for the device documentation
-$ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/documentation/ntp-servers.j2
+```jinja
+{%   if ntp_server.authentication_keys is defined and ntp_server.authentication_keys is not none %}
+{%     for key in ntp_server.authentication_keys %}
+{%       if (ntp_server.authentication_keys[key].hash_algorithm is defined and ntp_server.authentication_keys[key].hash_algorithm is not none) and (ntp_server.authentication_keys[key].encrypted_key is defined and ntp_server.authentication_keys[key].encrypted_key is not none) %}
+ntp authentication-key {{ key }} {{ ntp_server.authentication_keys[key].hash_algorithm }} 7 {{ ntp_server.authentication_keys[key].encrypted_key }}
+{%       endif %}
+{%     endfor %}
+{%   endif %}
+{%   if ntp_server.trusted_keys is defined and ntp_server.trusted_keys is not none %}
+ntp trusted-key {{ ntp_server.trusted_keys  }}
+{%   endif %}
+{%   if ntp_server.authenticate is defined and ntp_server.authenticate == True %}
+ntp authenticate
+{%   endif %}
 ```
 
 __2. Test the New Option in Existing Feature of EOS CLI Config Generation Role__
 
 ```shell
-# Run the playbook to generate the intended EOS configuration files and per device documentation # again to make sure the new NTP authentication option did not break anything
+# Run the playbook to generate the intended EOS configuration files to make sure the new NTP authentication option did not break anything
 $ ansible-playbook playbook.build.intended.yml
 
-# Add authentication for the NTP server in spine11
+# Add authentication for the NTP server in spine1 YAML file
 $ vi intended/structured_configs/spine1.yml
+```
 
+Add content:
+
+```yaml
+### NTP Servers ###
+ntp_server:
+  local_interface:
+    vrf: MGMT
+    interface: Management1
+  nodes:
+    - 192.168.0.1
+  authentication_keys:
+    1:
+      hash_algorithm: md5
+      encrypted_key: xxxx
+    2:
+      hash_algorithm: sha1
+      encrypted_key: xxx
+  trusted_keys: "1-2"
+  authenticate: true
+```
+
+```shell
 # Run the playbook again to generate the new configuration and the documentation
 $ ansible-playbook playbook.build.intended.yml
 
 # Verify the rendered configuration
 $ more intended/configs/spine1.cfg
+
+# Add authentication for the NTP server in the jinja template for the device documentation
+$ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/documentation/ntp-servers.j2
+```
+
+```jinja
+{%   if ntp_server.authentication_keys is defined and ntp_server.authentication_keys is not none %}
+
+| Key id | Hash_algorithm| Encrypted key |
+| ---- | ------- |  ------- |
+{%     for key in ntp_server.authentication_keys %}
+{%       if (ntp_server.authentication_keys[key].hash_algorithm is defined and ntp_server.authentication_keys[key].hash_algorithm is not none) and (ntp_server.authentication_keys[key].encrypted_key is defined and ntp_server.authentication_keys[key].encrypted_key is not none) %}
+| {{ key }} | {{ ntp_server.authentication_keys[key].hash_algorithm }} | {{ ntp_server.authentication_keys[key].encrypted_key }} |
+{%       endif %}
+{%     endfor %}
+{%   endif %}
+{%   if ntp_server.trusted_keys is defined and ntp_server.trusted_keys is not none %}
+
+List of trusted keys: {{ ntp_server.trusted_keys  }}
+{%   endif %}
+{%   if ntp_server.authenticate is defined and ntp_server.authenticate == True %}
+
+Authentication is enabled
+{%  else  %}
+
+Authentication is disabled
+{%  endif %}
+```
+
+```shell
+# Run the playbook again to generate the new configuration and the documentation
+$ ansible-playbook playbook.build.intended.yml
 
 # Verify the rendered device documentation
 $ more documentation/devices/spine1.md

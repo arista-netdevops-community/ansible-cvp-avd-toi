@@ -181,22 +181,11 @@ management telnet
 vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/eos-intended-config.j2
 ```
 
+Add content at the end of the file
+
 ```jinja
-{% if management_telnet is defined and management_telnet is not none %}
-### Management Telnet
-
-{%     if management_telnet.shutdown is defined and management_telnet.shutdown == false %}
-   Management Telnet is enabled
-
-{%     endif %}
-
-### Management Telnet Configuration
-
+{# management telnet #}
 {% include 'eos/management-telnet.j2' %}
-
-{% else %}
-Management Telnet is not defined.
-{% endif %}
 ```
 
 __4. Test New Feature of EOS CLI Config Generation Role__
@@ -216,10 +205,40 @@ $ more intended/configs/spine1.cfg
 
 # Create a telnet management jinja template for the device documentation
 $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/documentation/management-telnet.j2
+```
 
+```jinja
+{% if management_telnet is defined and management_telnet is not none %}
+### Management Telnet
+
+{%     if management_telnet.shutdown is defined and management_telnet.shutdown == false %}
+   Management Telnet is enabled
+
+{%     endif %}
+
+### Management Telnet Configuration
+
+{% include 'eos/management-telnet.j2' %}
+
+{% else %}
+Management Telnet is not defined.
+{% endif %}
+```
+
+```shell
 # Add telnet management in the eos-device-documentation.j2
-vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/eos-intended-config.j2
+vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/eos-device-documentation.j2
+```
 
+Add content
+
+```jinja
+## Management telnet
+
+{% include 'documentation/management-telnet.j2' %}
+```
+
+```shell
 # Run the playbook again to generate the new device documentation
 $ ansible-playbook playbook.build.intended.yml
 

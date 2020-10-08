@@ -131,7 +131,7 @@ Authentication is disabled
 ```
 
 ```shell
-# Run the playbook again to generate the new configuration and the documentation
+# Run the playbook again to generate the configuration and the new documentation
 $ ansible-playbook playbook.build.intended.yml
 
 # Verify the rendered device documentation

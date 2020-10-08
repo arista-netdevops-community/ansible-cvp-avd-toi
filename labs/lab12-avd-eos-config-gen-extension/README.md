@@ -32,7 +32,7 @@ ntp_server:
       encrypted_key: < encrypted_key >
     < id_2 >:
       hash_algorithm: < md5 | sha1 >
-      encrypted_key: < encypted_key >
+      encrypted_key: < encrypted_key >
   trusted_keys: "< list of key numbers >"
   authenticate: < true | false >
   local_interface:

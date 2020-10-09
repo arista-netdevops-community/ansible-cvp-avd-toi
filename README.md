@@ -52,7 +52,6 @@ $ vi inventory.yml
 ## Configure Lab Environment
 
 - [Arista Test Drive (ATD)](docs/atd-setup.md) for lab environment
-- [Virtual Environment](docs/venv-setup.md)
 
 ## Resources
 

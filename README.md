@@ -4,10 +4,10 @@
 
 ## About
 
-This repository is part of [`arista.cvp`](https://github.com/aristanetworks/ansible-cvp) & [`arista.avd`](https://github.com/aristanetworks/ansible-avd) ansible collections and provides lab materials. It contains lab playbooks.
+This repository is part of the ['Arista Netdevops Community'](https://github.com/arista-netdevops-community) and provides lab materials that is using [`arista.cvp`](https://github.com/aristanetworks/ansible-cvp) & [`arista.avd`](https://github.com/aristanetworks/ansible-avd) ansible collections. It contains lab playbooks.
 
 <p align="center">
-  <img src='docs/imgs/cv_ansible_logo.png' alt='Arista CloudVision and Ansible'/>
+  <img src='docs/imgs/AVD_logo.png' alt='Arista Validated Design' width="256" height="162"/>
 </p>
 
 ## List of available labs
@@ -31,6 +31,7 @@ This repository is part of [`arista.cvp`](https://github.com/aristanetworks/ansi
   - _Lab 10_: [Eos Configuration Deployment](labs/lab10-avd-eos-config-deploy)
   - _Lab 11_: [Eos State Validation](labs/lab11-avd-eos-state-validate)
   - _Lab 12_: [Eos Configuration Generation Role Extension](labs/lab12-avd-eos-config-gen-extension)
+
 
 ## Getting Started
 
@@ -62,3 +63,7 @@ $ vi inventory.yml
 ## License
 
 Project is published under [Apache License]().
+
+<p align="center">
+  <img src='docs/imgs/cv_ansible_logo.png' alt='Arista CloudVision and Ansible' width="215.5" height="87.5"/>
+</p>

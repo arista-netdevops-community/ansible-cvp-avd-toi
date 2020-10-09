@@ -4,7 +4,7 @@
 
 ## About
 
-This repository is part of the ['Arista Netdevops Community'](https://github.com/arista-netdevops-community) and provides lab material that is using [`arista.cvp`](https://github.com/aristanetworks/ansible-cvp) & [`arista.avd`](https://github.com/aristanetworks/ansible-avd) ansible collections. It contains lab playbooks.
+This repository is part of the [Arista Netdevops Community](https://github.com/arista-netdevops-community) and provides lab material that is using [`arista.cvp`](https://github.com/aristanetworks/ansible-cvp) & [`arista.avd`](https://github.com/aristanetworks/ansible-avd) ansible collections. It contains lab playbooks and jinja templates.
 
 <p align="center">
   <img src='docs/imgs/AVD_logo.png' alt='Arista Validated Design' width="256" height="162"/>

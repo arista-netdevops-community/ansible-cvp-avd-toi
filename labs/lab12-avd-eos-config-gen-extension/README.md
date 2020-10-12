@@ -20,7 +20,7 @@ ntp authentication-key 3 md5 7 051F031C35
 ntp trusted-key 2,7-10
 ntp authenticate
 
-# Document this feature enhancements by describing the new data-model associated to authentication for NTP servers (according to the CLI order) in the readme file that describes the device data-model
+# Document this feature enhancement by describing the new data-model associated to authentication for NTP servers (according to the CLI order) in the readme file that describes the device data-model
 $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/README.md
 ```
 

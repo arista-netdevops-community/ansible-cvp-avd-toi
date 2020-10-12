@@ -33,22 +33,6 @@ This repository is part of the [Arista Netdevops Community](https://github.com/a
   - _Lab 12_: [Eos Configuration Generation Role Extension](labs/lab12-avd-eos-config-gen-extension)
 
 
-## Getting Started
-
-```shell
-# Clone repository
-$ git clone https://github.com/arista-netdevops-community/ansible-cvp-avd-toi.git
-
-# Move to directory
-$ cd ansible-cvp-avd-toi
-
-# Move to lab folder
-$ cd labs
-
-# Edit inventory file
-$ vi inventory.yml
-```
-
 ## Configure Lab Environment
 
 - [Arista Test Drive (ATD)](docs/atd-setup.md) for lab environment

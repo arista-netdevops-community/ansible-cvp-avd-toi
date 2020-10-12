@@ -27,7 +27,8 @@ $ ansible-playbook playbook.deploy.CVP.yml
 
 # Connect to CVP and check the new topology and device configuration
 # https://{{cvp_address}}/cv/provisioning
-# Approve the 9 pending tasks and execute them
+# Approve the pending tasks and execute them
+# Note that the switches will appear with an inactive streaming status. This is normal. It will takes a few minutes to normalize.
 
 # Check the configuration of spine1 for example
 $ ssh arista@192.168.0.10

@@ -20,7 +20,7 @@ ntp authentication-key 3 md5 7 051F031C35
 ntp trusted-key 2,7-10
 ntp authenticate
 
-# Add authentication for the NTP server in the data-model (according to the CLI order)
+# Document this feature enhancements by describing the new data-model associated to authentication for NTP servers (according to the CLI order) in the readme file that describes the device data-model
 $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/README.md
 ```
 
@@ -44,7 +44,7 @@ ntp_server:
 ```
 
 ```shell
-# Add authentication for the NTP server in the EOS jinja template
+# Add authentication for the NTP server in the EOS jinja template. Watch for its position in the template (analyze the "if statement" structure)
 $  vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/eos/ntp-servers.j2
 ```
 
@@ -74,7 +74,7 @@ $ ansible-playbook playbook.build.intended.yml
 $ vi intended/structured_configs/spine1.yml
 ```
 
-Add content:
+Replace the NTP servers section with the following content:
 
 ```yaml
 ### NTP Servers ###
@@ -102,7 +102,7 @@ $ ansible-playbook playbook.build.intended.yml
 # Verify the rendered configuration
 $ more intended/configs/spine1.cfg
 
-# Add authentication for the NTP server in the jinja template for the device documentation
+# Add authentication for the NTP server in the jinja template for the device documentation. Watch for its position in the template (analyze the "if statement" structure)
 $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/documentation/ntp-servers.j2
 ```
 
@@ -157,7 +157,7 @@ $ vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_con
 
 ```yaml
 management_telnet:
-  shutdown: <true | false >
+  shutdown: < true | false >
 ```
 
 ```shell

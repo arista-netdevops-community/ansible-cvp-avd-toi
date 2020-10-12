@@ -178,7 +178,7 @@ management telnet
 
 ```shell
 # Add telnet management in the eos-intended-config.j2
-vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/eos-intended-config.j2
+vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/eos-intended-config.j2
 ```
 
 Add content at the end of the file
@@ -227,7 +227,7 @@ Management Telnet is not defined.
 
 ```shell
 # Add telnet management in the eos-device-documentation.j2
-vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/eos-device-documentation.j2
+vi ../collections/ansible-avd/ansible_collections/arista/avd/roles/eos_cli_config_gen/templates/eos-device-documentation.j2
 ```
 
 Add content

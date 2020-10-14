@@ -27,7 +27,7 @@ This repository is part of the [Arista Netdevops Community](https://github.com/a
 
 - Arista Validated Design:
   - _Lab 08_: [L3ls Evpn Fabric Description](labs/lab08-avd-l3ls-evpn)
-  - _Lab 09_: [Eos CLI Gonfiguration Generation](labs/lab09-avd-eos-cli-config-gen)
+  - _Lab 09_: [Eos CLI Configuration Generation](labs/lab09-avd-eos-cli-config-gen)
   - _Lab 10_: [Eos Configuration Deployment](labs/lab10-avd-eos-config-deploy)
   - _Lab 11_: [Eos State Validation](labs/lab11-avd-eos-state-validate)
   - _Lab 12_: [Eos Configuration Generation Role Extension](labs/lab12-avd-eos-config-gen-extension)

@@ -4,6 +4,7 @@ daemon TerminAttr
 !
 dns domain atd.lab
 !
+ntp server 192.168.0.1 iburst source Management1
 !
 aaa authentication login default local
 aaa authorization exec default local
@@ -11,8 +12,9 @@ aaa authorization exec default local
 username admin privilege 15 role network-admin secret 5 $1$5O85YVVn$HrXcfOivJEnISTMb6xrJc.
 username arista privilege 15 secret 5 $1$4VjIjfd1$XkUVulbNDESHFzcxDU.Tk1
 !
-username arista ssh-key ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChqVuX63usoK1mrAyQ5PKG5vd7uQXmmr9EygsfuC0ovPOjwYEdhvtagVzd1yMxSl13uT84pCoJ0dLFTAGDEsfhf2JFFBq64kp2MjwXOhLxVDgP97ZBiZaj/CCmP3M3tIs8fbny2CFOKq4kgvQDdOkeEB5LyOTUekGi9uDXsdK0Ocv579/yIyux3mvam0rXWESl+kVknyOqK0ULLBnv8pLpQ/M33h0srX+lxKCNUzSitEpGc8kvum9B3NO78vLwJT+Sp5EoqH26MkFr1ayp9a47puemaAmV6WKfAYHkWbjsJNpsvAmafLTtXrIOjm7A1xRE1xNctX+oetk55ZSbFPol arista@aphillipps-atd-16-0a97f531224e8c9a583cfed3ae2c5814
+username arista ssh-key ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDYjrY3uIVlIHOi5fJ2oYzK05Ms6Lalq27L+Xa6jGrUEUVROol2VED0al4CMvR7IXCgP092/lzj9AvJTVKIQVCabqKO77dMOBJPn6kzH21J8vFMip46/rjG6fXnP63TYPD8/fYNexMfl/I+ZumtbjvIJO+92IAAMNViRxsiE8JH86/T4M7nIBt7Z+5I8GjnYmPzzOWFVgAWvq4K9gWJxHmNv4d8ozJo1kFnHGUtVtXY0Fd8+FZHGHOjP8EisATbwCYbDG6Wd8pVDoYg4dGS7ABXm/vocjiku9kFRuL909580h7OhW5GobvwlEpbI4aGkaQ6MCrDqo1eYL2XlJmO66B arista@test-1-31014938
 !
 management api http-commands
+   protocol http
    no shutdown
 !

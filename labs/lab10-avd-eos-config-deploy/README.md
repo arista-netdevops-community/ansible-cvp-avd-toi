@@ -22,12 +22,16 @@ $ ls intended/configs/
 # Connect to CVP and check the current topology and device configuration
 # https://{{cvp_address}}/cv/provisioning
 
+# Approve and execute the pending tasks in CVP
+
 # Run playbook to deploy the configuration via CVP and to build the container topology
 $ ansible-playbook playbook.deploy.CVP.yml
 
 # Connect to CVP and check the new topology and device configuration
 # https://{{cvp_address}}/cv/provisioning
-# Approve the pending tasks and execute them
+
+# Approve and execute the pending tasks in CVP
+
 # Note that the switches will appear with an inactive streaming status. This is normal. It will takes a few minutes to normalize.
 
 # Check the configuration of spine1 for example

@@ -41,7 +41,7 @@ __2. Understand the per Device YAML Structured Configuration__
 # Hint: check first the configuration CLI commands and then check the data-model
 # on the following link: https://github.com/aristanetworks/ansible-avd/tree/devel/ansible_collections/arista/avd/roles/eos_cli_config_gen
 
-# before adding the key below, make sure that it does not already exist in the structured config file
+# Before adding the key below, make sure that it does not already exist in the structured config file
 $ cat intended/structured_configs/DC1-SPINE1.yml | grep streaming | wc -l
 # The result should be 1, which means the key exists
 

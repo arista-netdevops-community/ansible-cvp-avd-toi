@@ -18,7 +18,7 @@ $ ansible-playbook playbook.create.folders.yml
 # Run playbook to generate the structured configuration (YAML files) and the fabric documentation
 $ ansible-playbook playbook.build.structured.yml
 
-# Check the playbook and identify the AVD
+# Check the playbook and identify the use of AVD collection in the playbook as well as the specific AVD role
 $ more playbook.build.structured.yml
 
 # Check the rendered structured configuration
@@ -38,19 +38,22 @@ __2. Understand the Fabric Description Structure__
 # Modify the IP range used for the VTEP VXLAN Tunnel source loopbacks
 # Change "vtep_loopback_network_summary" value in group_vars/DC1_FABRIC.yml
 $ vi group_vars/DC1_FABRIC.yml
+
 # Run playbook to generate the structured configuration files with IP changes
 $ ansible-playbook playbook.build.structured.yml
 
 # Verify the change in structured files under loopback_interfaces
 $ more intended/structured_configs/DC1-LEAF1A.yml
+```
 
-# Add a server to the Fabric:
+Add a server to the Fabric:
 
-# Server03
-#	Part of TENANT_B
-#	In RackB
-#	Connected on port Ethernet 8 of switch DC1-LEAF1A
+  - Server03
+  - Part of TENANT_B
+  - In RackB
+  - Connected on port Ethernet 8 of switch DC1-LEAF1A
 
+```shell
 $ vi group_vars/DC1_SERVERS.yml
 # Add the following lines:
 ```

@@ -62,18 +62,19 @@ $ git clone https://github.com/aristanetworks/ansible-cvp.git
 # Install the Arista AVD collection
 $ git clone https://github.com/aristanetworks/ansible-avd.git
 
-$ cd ..
 ```
 
 ## Configure CloudVision IP Address
 
 > Inventory is pre-configured with internal CVP IP address, so it is not required to update this file.
 
-Go to [`labs`](../labs/) folder and do the following command:
+Go to [`labs`](../labs/) folder:
 
 ```shell
-$ cd labs
 
-# Edit inventory file
-$ vi inventory.yml
+$ cd ..
+
+# Display inventory file
+$ cat inventory.yml
+
 ```

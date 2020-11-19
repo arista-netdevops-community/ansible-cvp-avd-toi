@@ -34,7 +34,7 @@ __2. Create containers and move device__
 
 ```shell
 # Run playbook to create containers and move device
-$ ansible-playbook playbook.configlet.yml
+$ ansible-playbook playbook.container.yml
 ```
 
 > On cloudvision server, cancel task and move back device to its initial container
@@ -74,9 +74,8 @@ CVP_CONTAINERS:
 $ ansible-playbook playbook.container.yml
 ```
 
-Then check on CloudVision
-
-> On cloudvision server, cancel task and move back device to its initial container
+It will fail. Why does it fail? How can you solve the issue?
+Hint: is the configlet that you are trying to attach to the container present on CloudVision?
 
 __4. Remove Container topology__
 

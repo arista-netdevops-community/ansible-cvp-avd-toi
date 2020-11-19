@@ -42,7 +42,9 @@ __3. Optional: Create new configlets and attach them to leaf1__
 ```shell
 # Create new configlet to attach to Leaf1
 $ vi group_vars/CVP.yml
+```
 
+```yaml
 ---
 CVP_CONFIGLETS:
   01TRAINING-alias: "alias a{{ 999 | random }} show version"
@@ -57,8 +59,13 @@ CVP_DEVICES:
         - 'BaseIPv4_Leaf1'
         - '01TRAINING-01'
     imageBundle: []  # Not yet supported
+```
 
-# Modify the playbook to push the newly created configlet before applying it to the device
+```shell
+# If 01TRAINING-01 configlet is not present on CVP, the playbook will fail with the following message:
+"msg": "leaf1 device has unknown configlets from CV: ['01TRAINING-01']"
+# If not present, modify the playbook to push the configlet before applying it to the device. Do not forget to
+# collect CVP facts.
 # Be careful with the YAML indentation
 $ vi ansible-playbook playbook.device.yml
 

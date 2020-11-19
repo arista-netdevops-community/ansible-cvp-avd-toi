@@ -13,10 +13,12 @@ __1. Review configlet vars__
 $ cd ../lab07-cv-tasks
 ```
 
-```yaml
+```shell
 # Check variables
 $ cat group_vars/CVP.yml
+```
 
+```yaml
 ---
 CVP_CONFIGLETS:
   01TRAINING-alias: "alias a{{ 999 | random }} show version"

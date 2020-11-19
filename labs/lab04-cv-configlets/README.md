@@ -23,7 +23,7 @@ CVP_CONFIGLETS:
   01TRAINING-01: "alias a{{ 999 | random }} show version"
 ```
 
-__2. Create a new configlet on CloudVision server__
+__2. Create a new configlet on CloudVision server using the CVP collection for Ansible__
 
 Create a new configlet
 
@@ -50,10 +50,11 @@ https://{{cvp_address}}/cv/provisioning/configlet
 
 __3. Optional: Add a new configlet from file__
 
-Create configlet with content of file [configlet.txt](configlet.txt)
-
 ```shell
-$ Edit [CVP.yml](group_vars/CVP.yml) file
+# Check [configlet.txt](configlet.txt) file content that will used for the new configlet 01TRAINING-03
+$ cat configlet.txt
+
+# Edit [CVP.yml](group_vars/CVP.yml) file
 $ vi group_vars/CVP.yml
 
 # And update content with
@@ -80,7 +81,7 @@ __4. Remove configlet 01TRAINING-01 to -03 from CloudVision__
 Remove configlets 01TRAINING-01, 01TRAINING-02 and 01TRAINING-03
 
 ```shell
-$ Edit [CVP.yml](group_vars/CVP.yml) file
+# Edit [CVP.yml](group_vars/CVP.yml) file
 $ vi group_vars/CVP.yml
 
 # And update content with
@@ -93,14 +94,39 @@ CVP_CONFIGLETS:
 ```
 
 ```shell
+# Check the configlet filter used in the playboook playbook.configlet.yml
+$ cat playbook.configlet.yml
+```
+
+```yaml
+        configlet_filter: ["TRAINING"]
+```
+
+```shell
 # Run playbook to create the new configlet on CVP
 $ ansible-playbook playbook.configlet.yml
 ```
 
 Check on CloudVision: https://{{cvp_address}}/cv/provisioning/configlet
 
-__5. Remove all configlets created in this lab__
+__5. Remove all TRAINING configlets created in this lab__
 
 - Edit playbook
 - Set state to absent
 - Run playbook
+
+```shell
+# Set the state to absent instead of present in the playbook
+$ vi playbook.configlet.yml
+```
+
+```yaml
+        state: absent
+```
+
+```shell
+# Run playbook to remove the TRAINING configlet on CVP
+$ ansible-playbook playbook.configlet.yml
+```
+
+Check on CloudVision: https://{{cvp_address}}/cv/provisioning/configlet

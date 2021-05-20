@@ -1,4 +1,4 @@
-ansible==2.9.7
+ansible==ansible>=2.10,<2.11
 requests==2.22.0
 treelib==1.5.5
 netaddr==0.7.19

@@ -1,0 +1,10 @@
+---
+- name: lab04 - cv_configlet_v3 lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Push config to {{inventory_hostname}}"
+      arista.cvp.cv_configlet_v3:
+        configlets: "{{CVP_CONFIGLETS}}"
+        state: present

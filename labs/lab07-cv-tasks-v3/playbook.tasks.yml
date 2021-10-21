@@ -1,0 +1,27 @@
+---
+- name: lab07 - cv_tasks_v3 lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: "Configure configlet on {{inventory_hostname}}"
+      arista.cvp.cv_configlet_v3:
+        configlets: "{{CVP_CONFIGLETS}}"
+        state: present
+      register: CVP_CONFIGLET_RESULT
+
+    - name: "Configure devices on {{inventory_hostname}}"
+      arista.cvp.cv_device_v3:
+        devices: "{{CVP_DEVICES}}"
+        search_key: 'fqdn'
+        state: present
+      register: CVP_DEVICES_RESULTS
+
+    - name: 'Display pending tasks from {{inventory_hostname}}'
+      debug:
+        msg: '{{CVP_DEVICES_RESULTS.taskIds}}'
+
+    - name: 'Execute all pending tasks and wait for completion for 60 seconds'
+      arista.cvp.cv_task_v3:
+        tasks: "{{CVP_DEVICES_RESULTS.taskIds}}"

@@ -1,0 +1,13 @@
+---
+CVP_CONFIGLETS:
+  leaf1-bgp: "{{lookup('file','vars/leaf1-bgp.cfg')}}"
+  leaf1-mlag: "{{lookup('file','vars/leaf1-mlag.cfg')}}"
+
+CVP_DEVICES:
+  - fqdn: 'leaf1'
+    parentContainerName: Training
+    configlets:
+        - minimal
+        - leaf1-mlag
+        - leaf1-bgp
+    imageBundle: []  # Not yet supported

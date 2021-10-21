@@ -1,0 +1,6 @@
+---
+CVP_CONFIGLETS:
+  01TRAINING-alias: "alias a{{ 999 | random }} show version"
+  01TRAINING-01: "alias a{{ 999 | random }} show version"
+  # Read config from file
+  01TRAINING-03: "{{lookup('file','vars/leaf1.cfg')}}"

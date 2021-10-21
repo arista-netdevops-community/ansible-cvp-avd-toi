@@ -19,13 +19,13 @@ $ cat group_vars/CVP.yml
 ---
 CVP_CONTAINERS:
   TRAINING:
-    parent_container: Tenant
+    parentContainerName: Tenant
   TRAINING_DC:
-    parent_container: TRAINING
+    parentContainerName: TRAINING
   TRAINING_LEAFS:
-    parent_container: TRAINING_DC
+    parentContainerName: TRAINING_DC
   TRAINING_SPINES:
-    parent_container: TRAINING_DC
+    parentContainerName: TRAINING_DC
     devices:
       - 'spine1'
 ```

@@ -1,9 +1,5 @@
 # Validation lab
 
-# Ansible user and password
-ansible_user: arista
-ansible_password: arista
-
 # local users
 local_users:
   admin:

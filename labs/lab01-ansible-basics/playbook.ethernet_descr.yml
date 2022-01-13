@@ -1,13 +1,7 @@
 ---
 - name: Configure description on Ethernet1
   hosts: Leaf1
-  connection: network_cli
   gather_facts: false
-  vars:
-    ansible_network_os: eos
-    ansible_become: yes
-    ansible_become_method: enable
-
   tasks:
     - name: Configure description on Ethernet1
       eos_config:

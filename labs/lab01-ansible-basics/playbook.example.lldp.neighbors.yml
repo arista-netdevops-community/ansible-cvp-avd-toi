@@ -1,13 +1,7 @@
 ---
 - name: Run commands on remote EOS devices and save the output
   hosts: DC_FABRIC
-  connection: network_cli
   gather_facts: false
-  vars:
-    ansible_network_os: eos
-    ansible_become: yes
-    ansible_become_method: enable
-
   tasks:
     - name: run show command on remote EOS devices
       eos_command:

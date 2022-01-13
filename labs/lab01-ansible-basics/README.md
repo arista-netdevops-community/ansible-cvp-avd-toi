@@ -60,26 +60,28 @@ $ ansible Leaf1 -m debug -a "var=hostvars[inventory_hostname]"
 $ ansible-inventory --host Leaf1
 ```
 
+> Update `inventory.yml` with the generated password of your ATD instance
+
 __4. Run Ad-hoc commands and analyse the differences__
 
 ```shell
 # Run show version on Spine1
-$ ansible Spine1 -m raw -a "show version | grep image " -u arista -k
+$ ansible Spine1 -m eos_command -a "commands='show version | grep image'"
 
 # Run show version on Spine1 with JSON output
-$ ansible Spine1 -m raw -a "show version | json " -u arista -k
-
+$ ansible Spine1 -m eos_command -a "commands='show version | json'"
 # Run show run on all the switches of the DC
-$ ansible DC -m raw -a "show runn" -u arista -k
+$ ansible DC -m eos_command -a "commands='show runn'"
 
 # Run show run on Spine1 only by using the command option --limit
-$ ansible DC --limit Spine1 -m raw -a "show runn" -u arista -k
+$ ansible DC --limit Spine1 -m eos_command -a "commands='show runn'"
 
-# Run show version on the Spine switches using another inventory, in this case using Test_inventory.yml
-$ ansible DC_SPINES -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -k
+# Run show version on the Spine switches using another inventory, in this case using inventory_cli.yml
+# Note that inventory_cli uses a different connection method to the switches : CLI over SSH
+$ ansible DC_SPINES -i inventory_cli.yml -m eos_command -a "commands='show version | grep image'"
 
 # Run show version on the Spine switches using Test_inventory.yml and the verbose mode
-$ ansible DC -i Test_inventory.yml -m raw -a "show version | grep image" -u arista -vvv -k
+$ ansible DC -i inventory_cli.yml -m eos_command -a "commands='show version | grep image'" -vvv
 ```
 
 __5. Use playbooks to collect EOS version and to configure__
@@ -101,7 +103,7 @@ $ ansible-playbook --limit DC_SPINES -i Test_inventory.yml playbook.eos_version.
 $ ansible-playbook playbook.ethernet_descr.yml
 
 # Use an ansible raw command to verify that the configuration has been applied
-$ ansible Leaf1 -m raw -a "show running interface Ethernet1" -u arista
+$ ansible Leaf1 -m eos_command -a "show running interface Ethernet1"
 ```
 
 __6. Create simple playbooks__
@@ -118,12 +120,7 @@ $ more playbook.vlan.yml
 ---
 - name: Configure vlan 100
   hosts: DC_LEAFS
-  connection: network_cli
-  gather_facts: no
-  vars:
-    ansible_network_os: eos
-    ansible_become: yes
-    ansible_become_method: enable
+  gather_facts: false
   tasks:
     - name: Configure vlan 100 on Leaf switches
       eos_config:

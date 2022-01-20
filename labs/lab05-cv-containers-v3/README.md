@@ -10,24 +10,28 @@ __1. Review containers vars__
 
 ```shell
 # Go to lab05 directory
-$ cd ../lab05-cv-containers
+$ cd ../lab05-cv-containers-v3
 ```
 
 ```yaml
 $ cat group_vars/CVP.yml
 
 ---
+CVP_CONFIGLETS:
+  01TRAINING-alias: "alias a{{ 999 | random }} show version"
+  01TRAINING-01: "alias a{{ 999 | random }} show version"
+
 CVP_CONTAINERS:
   TRAINING:
     parentContainerName: Tenant
+    configlets:
+    - 01TRAINING-01
   TRAINING_DC:
     parentContainerName: TRAINING
   TRAINING_LEAFS:
     parentContainerName: TRAINING_DC
   TRAINING_SPINES:
     parentContainerName: TRAINING_DC
-    devices:
-      - 'spine1'
 ```
 
 __2. Create containers and move device__

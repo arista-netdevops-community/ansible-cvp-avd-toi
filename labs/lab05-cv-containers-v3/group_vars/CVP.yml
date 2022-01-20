@@ -1,6 +1,6 @@
 ---
 CVP_CONFIGLETS:
-  01TRAINING-alias: "alias a{{ 999 | random }} show version"
+  01TRAINING-alias: "alias srnz show interfaces counters rates | nz"
   01TRAINING-01: "alias a{{ 999 | random }} show version"
 
 CVP_CONTAINERS:
@@ -14,9 +14,9 @@ CVP_CONTAINERS:
     parentContainerName: TRAINING_DC
   TRAINING_SPINES:
     parentContainerName: TRAINING_DC
-# DEVICES:
-#   - fqdn: Spine1
-#     parentContainerName: TRAINING_SPINES
-#     configlets:
-#     - 01TRAINING-01
+DEVICES:
+  - fqdn: tp-avd-leaf1
+    parentContainerName: TRAINING_SPINES
+    configlets:
+    - 01TRAINING-alias
 

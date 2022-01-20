@@ -18,7 +18,7 @@ $ cat group_vars/CVP.yml
 
 ---
 CVP_CONFIGLETS:
-  01TRAINING-alias: "alias a{{ 999 | random }} show version"
+  01TRAINING-alias: "alias srnz show interfaces counters rates | nz"
   01TRAINING-01: "alias a{{ 999 | random }} show version"
 
 CVP_CONTAINERS:
@@ -32,16 +32,21 @@ CVP_CONTAINERS:
     parentContainerName: TRAINING_DC
   TRAINING_SPINES:
     parentContainerName: TRAINING_DC
+DEVICES:
+  - fqdn: Spine1
+    parentContainerName: TRAINING_SPINES
+    configlets:
+    - 01TRAINING-alias
 ```
 
-__2. Create containers and move device__
+__2. Create containers and move the device__
 
 ```shell
 # Run playbook to create containers and move device
 $ ansible-playbook create_topo.yml
 ```
 
-> On cloudvision server, cancel task and move back device to its initial container
+> On cloudvision server, cancel task and move back the device to its initial container
 
 __3. Optional: Attach 01TRAINING-01 to TRAINING container__
 
@@ -57,7 +62,7 @@ And update content with the following:
 ```yaml
 ---
 CVP_CONFIGLETS:
-  01TRAINING-alias: "alias a{{ 999 | random }} show version"
+  01TRAINING-alias: "alias srnz show interfaces counters rates | nz"
   01TRAINING-01: "alias a{{ 999 | random }} show version"
 
 CVP_CONTAINERS:

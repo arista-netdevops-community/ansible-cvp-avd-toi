@@ -15,7 +15,7 @@ CVP_CONTAINERS:
   TRAINING_SPINES:
     parentContainerName: TRAINING_DC
 DEVICES:
-  - fqdn: tp-avd-leaf1
+  - fqdn: spine1
     parentContainerName: TRAINING_SPINES
     configlets:
     - 01TRAINING-alias

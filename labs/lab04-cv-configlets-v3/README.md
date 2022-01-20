@@ -99,3 +99,27 @@ $ ansible-playbook playbook.configlet.v3.yml
 ```
 
 Check on CloudVision: https://{{cvp_address}}/cv/provisioning/configlet
+
+Note that the content of the configlets do not have to be be part of the variables in order for the playbook to
+successfully delete the configlets, they can just be set as empty strings.
+
+e.g.:
+
+```yaml
+---
+- name: lab04 - cv_configlet_v3 lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  vars:
+    CVP_CONFIGLETS:
+      leaf_cfg1: ""
+      leaf_cfg2: ""
+  tasks:
+    - name: "Push config to {{inventory_hostname}}"
+      arista.cvp.cv_configlet_v3:
+        configlets: "{{CVP_CONFIGLETS}}"
+        state: absent
+```
+
+The above playbook will remove configlets named `leaf_cfg1` and `leaf_cfg2`.

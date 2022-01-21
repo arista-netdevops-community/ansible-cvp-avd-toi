@@ -11,9 +11,9 @@
       register: CVP_CONTAINERS_RESULT
     - name: "Configure devices on {{inventory_hostname}}"
       arista.cvp.cv_device_v3:
-        devices: '{{DEVICES}}'
+        devices: "{{DEVICES}}"
         apply_mode: loose
         state: present
-    - name: 'Display cv_configlet result'
+    - name: "Display cv_configlet result"
       debug:
-        msg: '{{CVP_CONTAINERS_RESULT}}'
+        msg: "{{CVP_CONTAINERS_RESULT}}"

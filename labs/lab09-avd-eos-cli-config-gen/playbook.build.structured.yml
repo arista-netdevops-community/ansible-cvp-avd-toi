@@ -9,4 +9,4 @@
   tasks:
     - name: Generate device structured config and Fabric documentation
       import_role:
-        name: eos_l3ls_evpn
+        name: eos_designs

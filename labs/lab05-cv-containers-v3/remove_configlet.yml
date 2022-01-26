@@ -1,0 +1,12 @@
+---
+- name: lab05 - cv_container_v3 lab
+  hosts: CloudVision
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Remove configlets from devices on {{inventory_hostname}}"
+      arista.cvp.cv_device_v3:
+        devices: "{{DEVICES}}"
+        search_key: 'fqdn'
+        apply_mode: strict
+        state: present

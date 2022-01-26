@@ -2,6 +2,14 @@
 DC:
   children:
     DC_FABRIC:
+      vars:
+        ansible_network_os: eos
+        ansible_connection: httpapi
+        ansible_httpapi_user: arista
+        ansible_httpapi_password: YOUR_ATD_PASSWORD
+        ansible_httpapi_use_ssl: True
+        ansible_httpapi_validate_certs: False
+        ansible_httpapi_port: 443
       children:
         DC_SPINES:
           hosts:

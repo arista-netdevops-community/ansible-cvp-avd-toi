@@ -1,11 +1,6 @@
 - name: Collect EOS version
   hosts: DC
-  connection: network_cli
-  gather_facts: no
-  vars:
-    ansible_network_os: eos
-    ansible_become: yes
-    ansible_become_method: enable
+  gather_facts: false
   tasks:
     - name: Get switch EOS version
       eos_command:

@@ -2,6 +2,13 @@
 DC:
   children:
     DC_FABRIC:
+      vars:
+        ansible_network_os: eos
+        ansible_connection: network_cli
+        ansible_user: arista
+        ansible_private_key_file: /home/arista/.ssh/id_rsa
+        ansible_become: yes
+        ansible_become_method: enable
       children:
         DC_SPINES:
           hosts:

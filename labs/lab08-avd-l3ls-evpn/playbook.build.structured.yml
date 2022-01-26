@@ -10,4 +10,3 @@
     - name: Generate device structured config and Fabric documentation
       import_role:
         name: eos_designs
-        

@@ -22,10 +22,19 @@ CVP_CONFIGLETS:
   leaf1-bgp: "{{lookup('file','vars/leaf1-bgp.cfg')}}"
   leaf1-mlag: "{{lookup('file','vars/leaf1-mlag.cfg')}}"
 
+CVP_CONTAINERS:
+  TRAINING:
+    parentContainerName: Tenant
+  TRAINING_DC:
+    parentContainerName: TRAINING
+  TRAINING_LEAFS:
+    parentContainerName: TRAINING_DC
+  TRAINING_SPINES:
+    parentContainerName: TRAINING_DC
 
 CVP_DEVICES:
   - fqdn: 'leaf1'
-    parentContainerName: Training
+    parentContainerName: TRAINING_LEAFS
     configlets:
         - leaf1-mlag
         - leaf1-bgp
